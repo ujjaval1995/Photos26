@@ -5,7 +5,7 @@ import java.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Photos
+public class Model
 {
 	public static final String ADMIN = "admin";
 	
@@ -13,7 +13,7 @@ public class Photos
 	private User current_user;
 	private ObservableList<User> obs_users;
 	
-	public Photos()
+	public Model()
 	{
 		users = new ArrayList<>();
 		current_user = null;
