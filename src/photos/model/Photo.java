@@ -1,19 +1,21 @@
 package photos.model;
 
-import java.time.LocalDateTime;
 import java.util.*;
+import java.time.LocalDateTime;
 
 public class Photo
 {
-	private String name;
+	private UUID id;
 	private String caption;
 	private LocalDateTime datetime;
+	private HashMap<String, HashSet<String>> tags;
 	
-	public Photo(String name)
+	public Photo()
 	{
-		this.name = name;
+		id = UUID.randomUUID();
 		caption = "";
 		datetime = null;
+		tags = new HashMap<>();
 	}
 
 }

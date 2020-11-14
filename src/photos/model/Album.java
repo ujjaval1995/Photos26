@@ -1,7 +1,7 @@
 package photos.model;
 
-import java.time.LocalDate;
 import java.util.*;
+import java.time.LocalDate;
 
 public class Album implements Comparable<Album>
 {
@@ -47,7 +47,7 @@ public class Album implements Comparable<Album>
 	
 	public void addPhoto()
 	{
-		photos.add(new Photo(name));
+		photos.add(new Photo());
 	}
 	
 	public void deletePhoto(Photo photo)

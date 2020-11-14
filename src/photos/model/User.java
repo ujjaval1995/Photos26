@@ -1,7 +1,9 @@
 package photos.model;
 
-import javafx.collections.ObservableList;
 import java.util.*;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class User implements Comparable<User>
 {
@@ -18,6 +20,7 @@ public class User implements Comparable<User>
 		albums = new ArrayList<>();
 		select_album = null;
 		obs_albums = null;
+		obs_albums = FXCollections.observableArrayList();
 	}
 	
 	public String getName()
@@ -34,9 +37,11 @@ public class User implements Comparable<User>
 	{
 		return select_album;
 	}
-	
-	// obs list
-	// complete
+
+	public ObservableList<Album> getObsAlbums()
+	{
+        return obs_albums;
+    }
 	
 	public void addAlbum(String name)
 	{
