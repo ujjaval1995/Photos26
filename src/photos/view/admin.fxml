@@ -1,44 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: darkslategray; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.controller.AdminController">
    <children>
-      <MenuBar layoutY="6.0" prefHeight="29.0" prefWidth="900.0">
+      <MenuBar prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: lightgray;">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Logout" />
-                  <MenuItem mnemonicParsing="false" text="Exit" />
+                  <MenuItem fx:id="logout" mnemonicParsing="false" text="Logout" />
+                  <MenuItem fx:id="exit" mnemonicParsing="false" text="Exit" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Navigate">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Home" />
-                  <Menu mnemonicParsing="false" text="Album" />
+                  <MenuItem fx:id="home" disable="true" mnemonicParsing="false" text="Home" />
+                  <Menu disable="true" mnemonicParsing="false" text="Album" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Help">
+            <Menu fx:id="about" mnemonicParsing="false" text="Help">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem fx:id="about" mnemonicParsing="false" text="About" />
                </items>
             </Menu>
          </menus>
       </MenuBar>
-      <ScrollPane layoutY="35.0" prefHeight="269.0" prefWidth="600.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ListView prefHeight="269.0" prefWidth="600.0" AnchorPane.bottomAnchor="-69.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-400.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
-      <TextField layoutX="181.0" layoutY="336.0" promptText="Add/Delete Username" />
-      <Button layoutX="351.0" layoutY="336.0" mnemonicParsing="false" text="Add" />
-      <Button layoutX="400.0" layoutY="336.0" mnemonicParsing="false" text="Delete" />
+      <ListView layoutX="246.0" layoutY="52.0" prefHeight="450.0" prefWidth="410.0" style="-fx-background-color: lightgray;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="246.0" AnchorPane.topAnchor="52.0" />
+      <TextField layoutX="246.0" layoutY="516.0" prefHeight="25.0" prefWidth="200.0" promptText="New User" />
+      <Button fx:id="add" layoutX="454.0" layoutY="516.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Add" />
+      <Button fx:id="delete" layoutX="355.0" layoutY="554.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="190.0" text="Delete Selected User" />
    </children>
 </AnchorPane>
