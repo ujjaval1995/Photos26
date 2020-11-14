@@ -4,27 +4,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Photos-Login" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
-  <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-         <children>
-            <MenuBar layoutX="2.0" layoutY="7.0" prefHeight="29.0" prefWidth="594.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Exit" />
-                     </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="About">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <TextField layoutX="219.0" layoutY="159.0" />
-            <Label layoutX="219.0" layoutY="142.0" text="Username*" />
-            <Button alignment="CENTER" layoutX="272.0" layoutY="204.0" mnemonicParsing="false" text="Login" textAlignment="CENTER" />
-         </children></AnchorPane>
-  </content>
-</TitledPane>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar layoutY="7.0" prefHeight="29.0" prefWidth="600.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Logout" />
+                  <MenuItem mnemonicParsing="false" text="Exit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Navigate">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Home" />
+                  <Menu mnemonicParsing="false" text="Album" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Button layoutX="273.0" layoutY="222.0" mnemonicParsing="false" text="Login" />
+      <PasswordField layoutX="220.0" layoutY="187.0" />
+      <Label layoutX="220.0" layoutY="170.0" text="Username*" />
+   </children>
+</AnchorPane>
