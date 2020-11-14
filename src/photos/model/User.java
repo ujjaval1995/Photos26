@@ -7,8 +7,6 @@ import javafx.collections.ObservableList;
 
 public class User implements Comparable<User>
 {
-	public static final String ADMIN = "admin";
-	
 	private String name;
 	private ArrayList<Album> albums;
 	private Album select_album;

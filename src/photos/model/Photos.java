@@ -7,6 +7,8 @@ import javafx.collections.ObservableList;
 
 public class Photos
 {
+	public static final String ADMIN = "admin";
+	
 	private ArrayList<User> users;
 	private User current_user;
 	private ObservableList<User> obs_users;
