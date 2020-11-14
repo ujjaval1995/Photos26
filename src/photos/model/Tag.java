@@ -23,6 +23,16 @@ public class Tag implements Comparable<Tag>
 		return values;
 	}
 	
+	public void addValue(String value)
+	{
+		values.add(value);
+	}
+	
+	public void deleteValue(String value)
+	{
+		values.remove(value);
+	}
+	
 	@Override
 	public String toString()
 	{
