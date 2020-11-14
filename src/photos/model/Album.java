@@ -20,7 +20,40 @@ public class Album implements Comparable<Album>
 		photos = new ArrayList<>();
 	}
 	
+	public String getName()
+	{
+		return name;
+	}
 	
+	public int getPhotoCount()
+	{
+		return photo_count;
+	}
+	
+	public LocalDate getStartDate()
+	{
+		return start_date;
+	}
+	
+	public LocalDate getEndDate()
+	{
+		return end_date;
+	}
+	
+	public ArrayList<Photo> getPhotos()
+	{
+		return photos;
+	}
+	
+	public void addPhoto()
+	{
+		photos.add(new Photo(name));
+	}
+	
+	public void deletePhoto(Photo photo)
+	{
+		photos.remove(photo);
+	}
 	
 	@Override
 	public String toString()

@@ -1,9 +1,7 @@
 package photos.model;
 
 import javafx.collections.ObservableList;
-
 import java.util.*;
-
 
 public class User implements Comparable<User>
 {
@@ -42,8 +40,7 @@ public class User implements Comparable<User>
 	
 	public void addAlbum(String name)
 	{
-		Album album = new Album(name);
-		albums.add(album);
+		albums.add(new Album(name));
 	}
 	
 	public void deleteAlbum(Album album)
