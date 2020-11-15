@@ -9,7 +9,7 @@ import photos.model.Model;
 
 public class MainController
 {
-	private static Model model;
+	public static Model model;
 	
 	public static Stage stage;
 	
@@ -83,19 +83,23 @@ public class MainController
 	
 	public static void toLogin()
 	{
+		login_ctrl.init();
 		stage.setScene(login_scene);
 		stage.setTitle("Welcome To Photos!");
 	}
 
 	public static void toAdmin()
 	{
+		admin_ctrl.init();
 		stage.setScene(admin_scene);
 		stage.setTitle("Admin Subsystem");
 	}
 
 	public static void toHome()
 	{
-		
+		home_ctrl.init();
+		stage.setScene(home_scene);
+		stage.setTitle("Welcome " + model.getCurrentUser());
 	}
 
 	public static void toPhoto()
@@ -106,6 +110,11 @@ public class MainController
 	public static void toAlbum()
 	{
 		
+	}
+
+	public void doLogout()
+	{
+		toLogin();
 	}
 	
 	public void doExit()
