@@ -31,6 +31,30 @@ public class User implements Comparable<User>
 		return albums;
 	}
 	
+	public Album getAlbum(String name)
+	{
+		for (Album album : albums)
+		{
+			if (album.getName().equals(name))
+			{
+				return album;
+			}
+		}
+		return null;
+	}
+	
+	public Album getAlbum(Album album)
+	{
+		for (Album album1 : albums)
+		{
+			if (album1.getName().equals(album.getName()))
+			{
+				return album;
+			}
+		}
+		return null;
+	}
+	
 	public Album getSelectedAlbum()
 	{
 		return select_album;
@@ -44,6 +68,11 @@ public class User implements Comparable<User>
 	public void addAlbum(String name)
 	{
 		albums.add(new Album(name));
+	}
+	
+	public void addAlbum(Album album)
+	{
+		albums.add(album);
 	}
 	
 	public void deleteAlbum(Album album)

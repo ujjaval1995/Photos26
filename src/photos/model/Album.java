@@ -45,9 +45,9 @@ public class Album implements Comparable<Album>
 		return photos;
 	}
 	
-	public void addPhoto()
+	public void addPhoto(Photo photo)
 	{
-		photos.add(new Photo());
+		photos.add(photo);
 	}
 	
 	public void deletePhoto(Photo photo)

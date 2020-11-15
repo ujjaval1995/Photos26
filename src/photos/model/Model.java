@@ -17,7 +17,40 @@ public class Model
 	{
 		users = new ArrayList<>();
 		current_user = null;
-		obs_users = FXCollections.observableArrayList();;
+		obs_users = FXCollections.observableArrayList();
+		
+		User stock = new User("stock");
+		users.add(stock);
+		
+		Album pokemon = new Album("Pokemon");
+		Album cs_department = new Album("CS Department");
+		Album students = new Album("Students");
+		stock.addAlbum(pokemon);
+		stock.addAlbum(cs_department);
+		stock.addAlbum(students);
+		
+		Photo bulbasaur = new Photo();
+		Photo squirtle = new Photo();
+		Photo charmander = new Photo();
+		Photo pikachu = new Photo();
+		stock.getAlbum(pokemon).addPhoto(bulbasaur);
+		stock.getAlbum(pokemon).addPhoto(squirtle);
+		stock.getAlbum(pokemon).addPhoto(charmander);
+		stock.getAlbum(pokemon).addPhoto(pikachu);
+		
+		Photo franny = new Photo();
+		Photo guna = new Photo();
+		Photo santosh = new Photo();
+		Photo sesh = new Photo();
+		stock.getAlbum(cs_department).addPhoto(franny);
+		stock.getAlbum(cs_department).addPhoto(guna);
+		stock.getAlbum(cs_department).addPhoto(santosh);
+		stock.getAlbum(cs_department).addPhoto(sesh);
+		
+		Photo jishnu = new Photo();
+		Photo ujjaval = new Photo();
+		stock.getAlbum(students).addPhoto(jishnu);
+		stock.getAlbum(students).addPhoto(ujjaval);
 	}
 	
 	public ArrayList<User> getUsers()

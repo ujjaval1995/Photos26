@@ -5,9 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import photos.model.Model;
 
 public class MainController
 {
+	private static Model model;
+	
 	public static Stage stage;
 	
 //	public static Stage login_stage;
@@ -75,6 +78,7 @@ public class MainController
 		stage.setTitle("Welcome To Photos!");
 		stage.show();
 		
+		model = new Model();
 	}
 	
 	public static void toLogin()
