@@ -8,6 +8,11 @@ public class HomeController extends MainController
 		
 	}
 	
+	public void doAddAlbum()
+	{
+		
+	}
+	
 	public void doAbout()
 	{
 		// complete
