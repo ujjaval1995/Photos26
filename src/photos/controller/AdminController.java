@@ -7,9 +7,9 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import photos.model.User;
 
-public class AdminController
+public class AdminController implements Ctrl
 {
-	@FXML ListView<User> listview;
+	@FXML ListView<User> users_list;
 	@FXML Button add;
 	@FXML Button delete;
 	

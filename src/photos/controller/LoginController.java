@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class LoginController
+public class LoginController implements Ctrl
 {
 	@FXML Button login;
 	
