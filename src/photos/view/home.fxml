@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< .merge_file_hnpNQh
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+=======
+>>>>>>> .merge_file_IP6XN9
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -12,7 +15,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<<<<<<< .merge_file_hnpNQh
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: darkslategray; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.controller.HomeController">
+=======
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: darkslategray; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.controller.HomeController">
+>>>>>>> .merge_file_IP6XN9
    <children>
       <MenuBar prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: darkgray;">
          <menus>
@@ -45,6 +52,10 @@
         </columns>
       </TableView>
       <TextField fx:id="name" layoutX="140.0" layoutY="561.0" prefHeight="25.0" prefWidth="200.0" promptText="New Album" />
+<<<<<<< .merge_file_hnpNQh
       <Button fx:id="add" layoutX="350.0" layoutY="561.0" mnemonicParsing="false" onAction="#doAddAlbum" prefHeight="25.0" prefWidth="100.0" text="Add" />
+=======
+      <Button fx:id="add" layoutX="350.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Add" />
+>>>>>>> .merge_file_IP6XN9
    </children>
 </AnchorPane>

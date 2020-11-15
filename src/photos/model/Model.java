@@ -58,6 +58,18 @@ public class Model
 		return users;
 	}
 	
+	public User getUser(String name)
+	{
+		for (User user : users)
+		{
+			if (user.getName().equals(name))
+			{
+				return user;
+			}
+		}
+		return null;
+	}
+	
 	public User getCurrentUser()
 	{
         return current_user;
