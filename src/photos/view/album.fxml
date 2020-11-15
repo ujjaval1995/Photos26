@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: darkslategray; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.controller.AlbumController">
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: lightgray;">
+      <MenuBar prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: darkgray;">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>

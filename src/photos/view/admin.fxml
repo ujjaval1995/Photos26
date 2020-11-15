@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: darkslategray; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.controller.AdminController">
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: lightgray;">
+      <MenuBar prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: darkgray;">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
@@ -31,8 +31,8 @@
             </Menu>
          </menus>
       </MenuBar>
-      <ListView layoutX="246.0" layoutY="52.0" prefHeight="450.0" prefWidth="410.0" style="-fx-background-color: lightgray;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="246.0" AnchorPane.topAnchor="52.0" />
-      <TextField layoutX="246.0" layoutY="516.0" prefHeight="25.0" prefWidth="200.0" promptText="New User" />
+      <ListView fx:id="userlist" layoutX="246.0" layoutY="52.0" prefHeight="450.0" prefWidth="410.0" style="-fx-background-color: darkgray; -fx-border-color: orange;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="246.0" AnchorPane.topAnchor="52.0" />
+      <TextField fx:id="name" layoutX="246.0" layoutY="516.0" prefHeight="25.0" prefWidth="200.0" promptText="New User" />
       <Button fx:id="add" layoutX="454.0" layoutY="516.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Add" />
       <Button fx:id="delete" layoutX="355.0" layoutY="554.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="190.0" text="Delete Selected User" />
    </children>
