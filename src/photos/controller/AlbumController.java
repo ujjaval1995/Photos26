@@ -1,20 +1,21 @@
 package photos.controller;
 
 import javafx.application.Platform;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class LoginController implements Ctrl
+public class AlbumController
 {
-	@FXML Button login;
-	
 	public void start(Stage primaryStage)
 	{
 		
 	}
+
+	public void doHome()
+	{
+		
+	}
 	
-	public void doLogin()
+	public void doLogout()
 	{
 		
 	}
@@ -23,7 +24,7 @@ public class LoginController implements Ctrl
 	{
 		// complete
 	}
-	
+
 	public void doExit()
 	{
 		Platform.exit();

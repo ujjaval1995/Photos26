@@ -19,11 +19,17 @@ public class MainController
 	public static Scene album_scene;
 	public static Scene photo_scene;
 	
-	public static Ctrl login_ctrl;
-	public static Ctrl admin_ctrl;
-	public static Ctrl home_ctrl;
-	public static Ctrl album_ctrl;
-	public static Ctrl photo_ctrl;
+//	public static Ctrl login_ctrl;
+//	public static Ctrl admin_ctrl;
+//	public static Ctrl home_ctrl;
+//	public static Ctrl album_ctrl;
+//	public static Ctrl photo_ctrl;
+	
+	public static LoginController login_ctrl;
+	public static AdminController admin_ctrl;
+	public static HomeController home_ctrl;
+	public static AlbumController album_ctrl;
+	public static PhotoController photo_ctrl;
 	
 	public static void start(Stage primaryStage) throws Exception
 	{
@@ -42,23 +48,23 @@ public class MainController
 		admin_scene = new Scene(root);
 		admin_ctrl = loader.getController();
 		
-//		loader = new FXMLLoader();
-//		loader.setLocation(MainController.class.getResource("/photos/view/home.fxml"));
-//		root = loader.load();
-//		home_scene = new Scene(root);
-//		home_ctrl = loader.getController();
-//		
-//		loader = new FXMLLoader();
-//		loader.setLocation(MainController.class.getResource("/photos/view/album.fxml"));
-//		root = loader.load();
-//		album_scene = new Scene(root);
-//		album_ctrl = loader.getController();
-//		
-//		loader = new FXMLLoader();
-//		loader.setLocation(MainController.class.getResource("/photos/view/photo.fxml"));
-//		root = loader.load();
-//		photo_scene = new Scene(root);
-//		photo_ctrl = loader.getController();
+		loader = new FXMLLoader();
+		loader.setLocation(MainController.class.getResource("/photos/view/home.fxml"));
+		root = loader.load();
+		home_scene = new Scene(root);
+		home_ctrl = loader.getController();
+		
+		loader = new FXMLLoader();
+		loader.setLocation(MainController.class.getResource("/photos/view/album.fxml"));
+		root = loader.load();
+		album_scene = new Scene(root);
+		album_ctrl = loader.getController();
+		
+		loader = new FXMLLoader();
+		loader.setLocation(MainController.class.getResource("/photos/view/photo.fxml"));
+		root = loader.load();
+		photo_scene = new Scene(root);
+		photo_ctrl = loader.getController();
 		
 		login_stage = primaryStage;
 		

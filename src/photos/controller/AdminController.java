@@ -18,6 +18,16 @@ public class AdminController implements Ctrl
 		
 	}
 
+	public void doLogout()
+	{
+		
+	}
+	
+	public void doAbout()
+	{
+		// complete
+	}
+	
 	public void doExit()
 	{
 		Platform.exit();
