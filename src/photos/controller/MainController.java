@@ -111,6 +111,11 @@ public class MainController
 	{
 		
 	}
+
+	public void doLogout()
+	{
+		toLogin();
+	}
 	
 	public void doExit()
 	{
