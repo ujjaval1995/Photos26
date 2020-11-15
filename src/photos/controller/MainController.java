@@ -1,5 +1,6 @@
 package photos.controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -7,11 +8,13 @@ import javafx.stage.Stage;
 
 public class MainController
 {
-	public static Stage login_stage;
-	public static Stage admin_stage;
-	public static Stage home_stage;
-	public static Stage album_stage;
-	public static Stage photo_stage;
+	public static Stage stage;
+	
+//	public static Stage login_stage;
+//	public static Stage admin_stage;
+//	public static Stage home_stage;
+//	public static Stage album_stage;
+//	public static Stage photo_stage;
 	
 	public static Scene login_scene;
 	public static Scene admin_scene;
@@ -66,11 +69,43 @@ public class MainController
 		photo_scene = new Scene(root);
 		photo_ctrl = loader.getController();
 		
-		login_stage = primaryStage;
+		stage = primaryStage;
 		
-		login_stage.setScene(login_scene);
-		login_stage.setTitle("Welcome To Photos!");
-		login_stage.show();
+		stage.setScene(login_scene);
+		stage.setTitle("Welcome To Photos!");
+		stage.show();
 		
+	}
+	
+	public static void toLogin()
+	{
+		stage.setScene(login_scene);
+		stage.setTitle("Welcome To Photos!");
+	}
+
+	public static void toAdmin()
+	{
+		stage.setScene(admin_scene);
+		stage.setTitle("Admin Subsystem");
+	}
+
+	public static void toHome()
+	{
+		
+	}
+
+	public static void toPhoto()
+	{
+		
+	}
+
+	public static void toAlbum()
+	{
+		
+	}
+	
+	public void doExit()
+	{
+		Platform.exit();
 	}
 }

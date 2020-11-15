@@ -1,31 +1,19 @@
 package photos.controller;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
-public class LoginController implements Ctrl
+public class LoginController extends MainController
 {
 	@FXML Button login;
 	
-	public void start(Stage primaryStage)
-	{
-		
-	}
-	
 	public void doLogin()
 	{
-		
+		toAdmin();
 	}
 	
 	public void doAbout()
 	{
 		// complete
-	}
-	
-	public void doExit()
-	{
-		Platform.exit();
 	}
 }

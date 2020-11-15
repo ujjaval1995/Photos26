@@ -1,15 +1,8 @@
 package photos.controller;
 
-import javafx.application.Platform;
-import javafx.stage.Stage;
 
-public class PhotoController
+public class PhotoController extends MainController
 {
-	public void start(Stage primaryStage)
-	{
-		
-	}
-
 	public void doHome()
 	{
 		
@@ -23,10 +16,5 @@ public class PhotoController
 	public void doAbout()
 	{
 		// complete
-	}
-
-	public void doExit()
-	{
-		Platform.exit();
 	}
 }
