@@ -27,24 +27,9 @@
             </Menu>
          </menus>
       </MenuBar>
-<<<<<<< .merge_file_EYd0KD
-      <ScrollPane layoutY="35.0" prefHeight="269.0" prefWidth="600.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ListView prefHeight="269.0" prefWidth="600.0" AnchorPane.bottomAnchor="-69.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-400.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
-      <TextField fx:id="add_username" layoutX="181.0" layoutY="336.0" promptText="Add Username" />
-      <Button fx:id="addUsername" layoutX="351.0" layoutY="336.0" mnemonicParsing="false" onAction="#doAddUser" text="Add" />
-      <Button fx:id="deleteUsername" layoutX="400.0" layoutY="336.0" mnemonicParsing="false" onAction="#doDeleteUser" text="Delete" />
-=======
       <ListView fx:id="userlist" layoutX="246.0" layoutY="52.0" prefHeight="450.0" prefWidth="410.0" style="-fx-background-color: darkgray; -fx-border-color: orange;" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="246.0" AnchorPane.topAnchor="52.0" />
       <TextField fx:id="namefield" layoutX="246.0" layoutY="516.0" onAction="#doAdd" prefHeight="25.0" prefWidth="200.0" promptText="New User" />
       <Button fx:id="add" layoutX="454.0" layoutY="516.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Add" />
       <Button fx:id="delete" layoutX="355.0" layoutY="554.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="190.0" text="Delete Selected User" />
->>>>>>> .merge_file_qd1JBd
    </children>
 </AnchorPane>
