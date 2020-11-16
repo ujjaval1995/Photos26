@@ -41,45 +41,45 @@
             </Menu>
          </menus>
       </MenuBar>
-      <TableView fx:id="table" layoutX="7.0" layoutY="30.0" prefHeight="520.0" prefWidth="599.0" style="-fx-background-color: darkgray; -fx-border-color: orange;">
+      <TableView fx:id="table" layoutX="7.0" layoutY="30.0" prefHeight="564.0" prefWidth="599.0" style="-fx-background-color: darkgray; -fx-border-color: orange;">
         <columns>
-            <TableColumn minWidth="0.0" prefWidth="28.0" />
-          <TableColumn fx:id="name_col" prefWidth="242.0" text="Album Name" />
-          <TableColumn fx:id="photos_col" prefWidth="88.0" text="Photos" />
-            <TableColumn fx:id="start_col" prefWidth="124.0" text="Start Date" />
-            <TableColumn fx:id="end_col" prefWidth="123.0" text="End Date" />
+          <TableColumn fx:id="name_col" prefWidth="248.0" text="Album Name" />
+          <TableColumn fx:id="photos_col" prefWidth="68.0" text="Photos" />
+            <TableColumn fx:id="start_col" prefWidth="138.0" text="Start Date" />
+            <TableColumn fx:id="end_col" prefWidth="143.0" text="End Date" />
         </columns>
       </TableView>
-      <TextField fx:id="albumfield" layoutX="140.0" layoutY="561.0" onAction="#doAdd" prefHeight="25.0" prefWidth="200.0" promptText="New Album" />
-      <Button fx:id="add" layoutX="350.0" layoutY="561.0" mnemonicParsing="false" onAction="#doAdd" prefHeight="25.0" prefWidth="100.0" text="Add" />
-      <DatePicker fx:id="fromdate" layoutX="624.0" layoutY="143.0" prefHeight="25.0" prefWidth="120.0" promptText="From Date" />
-      <DatePicker fx:id="todate" layoutX="765.0" layoutY="143.0" prefHeight="25.0" prefWidth="120.0" promptText="To Date" />
-      <Text fill="ORANGE" layoutX="688.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search By Date">
+      <TextField fx:id="albumfield" layoutX="622.0" layoutY="81.0" onAction="#doAdd" prefHeight="25.0" prefWidth="149.0" promptText="New Album" />
+      <Button fx:id="add" layoutX="785.0" layoutY="80.0" mnemonicParsing="false" onAction="#doAdd" prefHeight="25.0" prefWidth="100.0" text="Add" />
+      <Button fx:id="delete" layoutX="623.0" layoutY="118.0" mnemonicParsing="false" onAction="#doDelete" prefHeight="25.0" prefWidth="260.0" text="Delete Selected Album" />
+      <DatePicker fx:id="fromdate" layoutX="623.0" layoutY="227.0" prefHeight="25.0" prefWidth="120.0" promptText="From Date" />
+      <DatePicker fx:id="todate" layoutX="764.0" layoutY="227.0" prefHeight="25.0" prefWidth="120.0" promptText="To Date" />
+      <Text fill="ORANGE" layoutX="687.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search By Date">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Button fx:id="searchbydate" layoutX="624.0" layoutY="190.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="260.0" text="Search" />
-      <Text fill="ORANGE" layoutX="688.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search By Tag">
+      <Button fx:id="searchbydate" layoutX="624.0" layoutY="269.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="260.0" text="Search" />
+      <Text fill="ORANGE" layoutX="688.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search By Tag">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <MenuButton fx:id="tagname1" layoutX="623.0" layoutY="326.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Tag Name">
+      <MenuButton fx:id="tagname1" layoutX="624.0" layoutY="375.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Tag Name">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
-      <MenuButton fx:id="tagname2" layoutX="624.0" layoutY="415.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Tag Name">
+      <MenuButton fx:id="tagname2" layoutX="624.0" layoutY="464.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Tag Name">
          <items>
             <MenuItem mnemonicParsing="false" text="Action 1" />
             <MenuItem mnemonicParsing="false" text="Action 2" />
          </items>
       </MenuButton>
-      <TextField fx:id="value1field" layoutX="737.0" layoutY="326.0" promptText="Tag Value" />
-      <TextField fx:id="value2field" layoutX="738.0" layoutY="415.0" promptText="Tag Value" />
-      <HBox alignment="CENTER" layoutX="624.0" layoutY="368.0" prefHeight="30.0" prefWidth="260.0">
+      <TextField fx:id="value1field" layoutX="738.0" layoutY="375.0" promptText="Tag Value" />
+      <TextField fx:id="value2field" layoutX="738.0" layoutY="464.0" promptText="Tag Value" />
+      <HBox alignment="CENTER" layoutX="624.0" layoutY="417.0" prefHeight="30.0" prefWidth="260.0">
          <children>
             <RadioButton fx:id="single" ellipsisString="#FFA500" mnemonicParsing="false" selected="true" text="Single" textFill="ORANGE">
                <padding>
@@ -97,7 +97,12 @@
             <RadioButton fx:id="or" mnemonicParsing="false" text="Or" textFill="ORANGE" toggleGroup="$group" />
          </children>
       </HBox>
-      <CheckBox fx:id="createalbum" layoutX="674.0" layoutY="462.0" mnemonicParsing="false" text="Create Album From Search" textFill="ORANGE" />
-      <Button fx:id="searchbytag" layoutX="625.0" layoutY="500.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="260.0" text="Search" />
+      <CheckBox fx:id="createalbum" layoutX="674.0" layoutY="511.0" mnemonicParsing="false" text="Create Album From Search" textFill="ORANGE" />
+      <Button fx:id="searchbytag" layoutX="626.0" layoutY="549.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="260.0" text="Search" />
+      <Text fill="ORANGE" layoutX="720.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Albums">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

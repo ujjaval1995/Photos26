@@ -74,6 +74,11 @@ public class HomeController extends MainController
 		
 	}
 	
+	public void doDelete()
+	{
+		
+	}
+	
 	public void doAbout()
 	{
 		// complete
