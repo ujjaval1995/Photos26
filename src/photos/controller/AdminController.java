@@ -32,7 +32,12 @@ public class AdminController extends MainController
 		ObservableList<User> obs_users = model.getObsUsers();
 		String name = namefield.getText().trim();
 		
-		if (model.getUser(name) != null)
+		if (name.equals(Model.ADMIN))
+		{
+			Alert error = new Alert(AlertType.ERROR, "Invalid username");
+            error.showAndWait();
+		}
+		else if (model.getUser(name) != null)
 		{
 			Alert error = new Alert(AlertType.ERROR, "User already exists");
             error.showAndWait();
@@ -62,6 +67,7 @@ public class AdminController extends MainController
 		        userlist.setItems(obs_users);
 		        userlist.getSelectionModel().select(user);
 			}
+			delete.setDisable(false);
 		}
 		namefield.clear();
 	}
@@ -96,7 +102,11 @@ public class AdminController extends MainController
 	        else
 	        {
 	        	userlist.getSelectionModel().select(0);
-	        }
+        	}
+	    	if (obs_users.isEmpty())
+	    	{
+	    		delete.setDisable(true);
+	    	}
     	}
     	namefield.clear();
 	}
