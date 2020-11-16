@@ -111,10 +111,14 @@ public class MainController
 	{
 		
 	}
+	
+	public void doHome()
+	{
+		toHome();
+	}
 
 	public void doLogout()
 	{
-		model.setCurrentUser(null);
 		toLogin();
 	}
 	
