@@ -12,6 +12,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -80,17 +81,20 @@
       <TextField fx:id="value2field" layoutX="738.0" layoutY="415.0" promptText="Tag Value" />
       <HBox fx:id="radio" alignment="CENTER" layoutX="624.0" layoutY="368.0" prefHeight="30.0" prefWidth="260.0">
          <children>
-            <RadioButton fx:id="single" ellipsisString="#FFA500" mnemonicParsing="false" text="Single" textFill="ORANGE">
+            <RadioButton fx:id="single" ellipsisString="#FFA500" mnemonicParsing="false" selected="true" text="Single" textFill="ORANGE">
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+               <toggleGroup>
+                  <ToggleGroup fx:id="group" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="and" mnemonicParsing="false" prefHeight="0.0" prefWidth="73.0" text="And" textFill="ORANGE" toggleGroup="$group">
                <padding>
                   <Insets right="30.0" />
                </padding>
             </RadioButton>
-            <RadioButton fx:id="and" mnemonicParsing="false" prefHeight="0.0" prefWidth="73.0" text="And" textFill="ORANGE">
-               <padding>
-                  <Insets right="30.0" />
-               </padding>
-            </RadioButton>
-            <RadioButton fx:id="or" mnemonicParsing="false" text="Or" textFill="ORANGE" />
+            <RadioButton fx:id="or" mnemonicParsing="false" text="Or" textFill="ORANGE" toggleGroup="$group" />
          </children>
       </HBox>
       <CheckBox fx:id="createalbum" layoutX="674.0" layoutY="462.0" mnemonicParsing="false" text="Create Album From Search" textFill="ORANGE" />
