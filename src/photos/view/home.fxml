@@ -44,10 +44,10 @@
       <TableView fx:id="table" layoutX="7.0" layoutY="30.0" prefHeight="520.0" prefWidth="599.0" style="-fx-background-color: darkgray; -fx-border-color: orange;">
         <columns>
             <TableColumn minWidth="0.0" prefWidth="28.0" />
-          <TableColumn prefWidth="242.0" text="Album Name" />
-          <TableColumn prefWidth="88.0" text="Photos" />
-            <TableColumn prefWidth="124.0" text="Start Date" />
-            <TableColumn prefWidth="123.0" text="End Date" />
+          <TableColumn fx:id="name_col" prefWidth="242.0" text="Album Name" />
+          <TableColumn fx:id="photos_col" prefWidth="88.0" text="Photos" />
+            <TableColumn fx:id="start_col" prefWidth="124.0" text="Start Date" />
+            <TableColumn fx:id="end_col" prefWidth="123.0" text="End Date" />
         </columns>
       </TableView>
       <TextField fx:id="albumfield" layoutX="140.0" layoutY="561.0" onAction="#doAdd" prefHeight="25.0" prefWidth="200.0" promptText="New Album" />
