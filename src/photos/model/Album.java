@@ -6,7 +6,6 @@ import java.time.LocalDate;
 public class Album implements Comparable<Album>
 {
 	private String name;
-	private String name2;
 	private int photo_count;
 	private LocalDate start_date;
 	private LocalDate end_date;
@@ -15,7 +14,6 @@ public class Album implements Comparable<Album>
 	public Album(String name)
 	{
 		this.name = name;
-		name2 = name;
 		photo_count = 0;
 		start_date = null;
 		end_date = null;
