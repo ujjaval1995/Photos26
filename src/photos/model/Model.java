@@ -21,6 +21,7 @@ public class Model
 		
 		User stock = new User("stock");
 		users.add(stock);
+		obs_users.add(stock);
 		
 		Album pokemon = new Album("Pokemon");
 		Album cs_department = new Album("CS Department");
@@ -75,6 +76,11 @@ public class Model
         return current_user;
     }
 	
+	public void addUser(User user)
+	{
+		users.add(user);
+	}
+	
 	public void addUser(String name)
 	{
 		users.add(new User(name));
@@ -91,6 +97,11 @@ public class Model
 	}
 	
 	public ObservableList<User> getObsUsers()
+	{
+        return obs_users;
+    }
+
+	public ObservableList<User> AddObsUser()
 	{
         return obs_users;
     }

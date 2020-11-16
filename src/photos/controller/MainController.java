@@ -114,6 +114,7 @@ public class MainController
 
 	public void doLogout()
 	{
+		model.setCurrentUser(null);
 		toLogin();
 	}
 	
