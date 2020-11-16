@@ -1,23 +1,19 @@
 package photos.model;
 
-import java.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class User implements Comparable<User>
 {
 	private String name;
-	private ArrayList<Album> albums;
-	private Album current_album;
-	private ObservableList<Album> obs_albums;
+	private ObservableList<Album> albums;
+	private Album currentAlbum;
 
 	public User(String name)
 	{
 		this.name = name;
-		albums = new ArrayList<>();
-		current_album = null;
-		obs_albums = null;
-		obs_albums = FXCollections.observableArrayList();
+		albums = FXCollections.observableArrayList();
+		currentAlbum = null;
 	}
 	
 	public String getName()
@@ -25,10 +21,20 @@ public class User implements Comparable<User>
 		return name;
 	}
 	
-	public ArrayList<Album> getAlbums()
+	public ObservableList<Album> getAlbums()
 	{
 		return albums;
 	}
+	
+	public Album getCurrentAlbum()
+	{
+		return currentAlbum;
+	}
+	
+	public void setCurrentAlbum(Album album)
+	{
+        currentAlbum = album;
+    }
 	
 	public Album getAlbum(String name)
 	{
@@ -54,39 +60,21 @@ public class User implements Comparable<User>
 		return null;
 	}
 	
-	public Album getCurrentAlbum()
-	{
-		return current_album;
-	}
-
-	public ObservableList<Album> getObsAlbums()
-	{
-        return obs_albums;
-    }
-	
 	public void addAlbum(String name)
 	{
 		Album album = new Album(name);
 		albums.add(album);
-		obs_albums.add(album);
 	}
 	
 	public void addAlbum(Album album)
 	{
 		albums.add(album);
-		obs_albums.add(album);
 	}
 	
 	public void deleteAlbum(Album album)
 	{
 		albums.remove(album);
-		obs_albums.remove(album);
 	}
-	
-	public void setCurrentAlbum(Album album)
-	{
-        current_album = album;
-    }
 	
 	@Override
 	public String toString()

@@ -6,17 +6,17 @@ import java.time.LocalDate;
 public class Album implements Comparable<Album>
 {
 	private String name;
-	private int photo_count;
-	private LocalDate start_date;
-	private LocalDate end_date;
+	private int photoCount;
+	private LocalDate startDate;
+	private LocalDate endDate;
 	private ArrayList<Photo> photos;
 	
 	public Album(String name)
 	{
 		this.name = name;
-		photo_count = 0;
-		start_date = null;
-		end_date = null;
+		photoCount = 0;
+		startDate = null;
+		endDate = null;
 		photos = new ArrayList<>();
 	}
 	
@@ -27,27 +27,17 @@ public class Album implements Comparable<Album>
 	
 	public int getPhotoCount()
 	{
-		return photo_count;
-	}
-	
-	public int getPhoto_count()
-	{
-		return photo_count;
+		return photoCount;
 	}
 	
 	public LocalDate getStartDate()
 	{
-		return start_date;
+		return startDate;
 	}
 	
-	public LocalDate getStart_date()
+	public LocalDate getEndDate()
 	{
-		return start_date;
-	}
-	
-	public LocalDate getEnd_date()
-	{
-		return end_date;
+		return endDate;
 	}
 	
 	public ArrayList<Photo> getPhotos()

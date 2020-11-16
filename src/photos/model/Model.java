@@ -7,8 +7,8 @@ public class Model
 {
 	public static final String ADMIN = "admin";
 	
-	private User currentUser;
 	private ObservableList<User> users;
+	private User currentUser;
 	
 	public Model()
 	{

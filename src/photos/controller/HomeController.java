@@ -43,9 +43,9 @@ public class HomeController extends MainController
 	public void initialize()
 	{
 		name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
-		photos_col.setCellValueFactory(new PropertyValueFactory<>("photo_count"));
-		start_col.setCellValueFactory(new PropertyValueFactory<>("start_date"));
-		end_col.setCellValueFactory(new PropertyValueFactory<>("end_date"));
+		photos_col.setCellValueFactory(new PropertyValueFactory<>("photoCount"));
+		start_col.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+		end_col.setCellValueFactory(new PropertyValueFactory<>("endDate"));
 		
 		
 	}
@@ -58,8 +58,8 @@ public class HomeController extends MainController
 		value2field.clear();
 		single.setSelected(true);
 		
-		ObservableList<Album> obs_albums = model.getCurrentUser().getObsAlbums();
-		table.setItems(obs_albums);
+		ObservableList<Album> albums = model.getCurrentUser().getAlbums();
+		table.setItems(albums);
 		if (model.getCurrentUser().getAlbums().size() > 0)
 		{
         	table.getSelectionModel().select(0);
@@ -68,13 +68,13 @@ public class HomeController extends MainController
 	
 	public void doAdd()
 	{
-		ObservableList<Album> obs_albums = model.getCurrentUser().getObsAlbums();
+		ObservableList<Album> albums = model.getCurrentUser().getAlbums();
 		String name = albumfield.getText().trim();
 		
 		// if (obs_albums.contains(o))
 		
 		
-		table.setItems(obs_albums);
+		table.setItems(albums);
 		
 	}
 	
