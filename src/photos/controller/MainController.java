@@ -104,12 +104,16 @@ public class MainController
 
 	public static void toPhoto()
 	{
-		
+	//	photo_ctrl.init();
+	//	stage.setScene(photo_scene);
+	//	stage.setTitle();
 	}
 
 	public static void toAlbum()
 	{
-		
+	//	album_ctrl.init();
+	//	stage.setScene(album_scene);
+	//	stage.setTitle("Welcome " + model.getCurrentUser());
 	}
 	
 	public void doHome()
