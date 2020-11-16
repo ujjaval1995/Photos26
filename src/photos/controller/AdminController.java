@@ -19,10 +19,10 @@ public class AdminController extends MainController
 	public void init()
 	{
 		namefield.clear();
-		ObservableList<User> obs_users = model.getUsers();
-		if (!obs_users.isEmpty())
+		ObservableList<User> users = model.getUsers();
+		if (!users.isEmpty())
     	{
-            userlist.setItems(obs_users);
+            userlist.setItems(users);
             userlist.getSelectionModel().select(0);
     	}
 	}
