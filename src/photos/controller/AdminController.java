@@ -1,8 +1,10 @@
 package photos.controller;
 
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import photos.model.*;
@@ -32,7 +34,8 @@ public class AdminController extends MainController
 		
 		if (model.getUser(name) != null)
 		{
-			// bad
+			Alert error = new Alert(AlertType.ERROR, "User already exists");
+            error.showAndWait();
 		}
 		else
 		{
@@ -57,7 +60,7 @@ public class AdminController extends MainController
 		    	}
 	    		obs_users.add(i, user);
 		        userlist.setItems(obs_users);
-		        userlist.getSelectionModel().select(i);
+		        userlist.getSelectionModel().select(user);
 			}
 		}
 		namefield.clear();
@@ -65,7 +68,37 @@ public class AdminController extends MainController
 	
 	public void doDelete()
 	{
-		
+		int index = userlist.getSelectionModel().getSelectedIndex();
+    	
+    	if (index < 0)
+    	{
+    		Alert error = new Alert(AlertType.ERROR, "No user selected");
+            error.showAndWait();
+    	}
+    	else
+    	{
+    		ObservableList<User> obs_users = model.getObsUsers();
+    		int size = obs_users.size();
+    	
+	    	User user = obs_users.get(index);
+	    	obs_users.remove(index);
+	    	model.deleteUser(user);;
+	        userlist.setItems(obs_users);
+	        
+	        if (size > index + 1)
+	        {
+	            userlist.getSelectionModel().select(index);
+	        }
+	        else if (size >= 2)
+	        {
+	            userlist.getSelectionModel().select(index-1);
+	        }
+	        else
+	        {
+	        	userlist.getSelectionModel().select(0);
+	        }
+    	}
+    	namefield.clear();
 	}
 	
 	public void doAbout()
