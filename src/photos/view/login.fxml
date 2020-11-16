@@ -38,7 +38,7 @@
             <Font name="Comic Sans MS" size="50.0" />
          </font>
       </Text>
-      <TextField fx:id="namefield" layoutX="360.0" layoutY="288.0" onAction="#doLogin" prefHeight="25.0" prefWidth="180.0" promptText="Username" />
+      <TextField fx:id="namefield" layoutX="360.0" layoutY="288.0" onAction="#doLogin" prefHeight="25.0" prefWidth="180.0" promptText="Username" text="stock" />
       <Text fx:id="message" fill="RED" layoutX="360.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="180.0" />
    </children>
 </AnchorPane>
