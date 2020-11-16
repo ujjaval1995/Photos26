@@ -19,7 +19,7 @@ public class AdminController extends MainController
 	public void init()
 	{
 		namefield.clear();
-		ObservableList<User> obs_users = model.getObsUsers();
+		ObservableList<User> obs_users = model.getUsers();
 		if (!obs_users.isEmpty())
     	{
             userlist.setItems(obs_users);
@@ -29,45 +29,47 @@ public class AdminController extends MainController
 	
 	public void doAdd()
 	{
-		ObservableList<User> obs_users = model.getObsUsers();
+		ObservableList<User> users = model.getUsers();
 		String name = namefield.getText().trim();
 		
 		if (name.equals(Model.ADMIN))
 		{
-			Alert error = new Alert(AlertType.ERROR, "Invalid username");
-            error.showAndWait();
-		}
-		else if (model.getUser(name) != null)
-		{
-			Alert error = new Alert(AlertType.ERROR, "User already exists");
+			Alert error = new Alert(AlertType.ERROR, "Username cannot be \"admin\"");
             error.showAndWait();
 		}
 		else
 		{
 			User user = new User(name);
-			model.addUser(user);
 			
-			if (obs_users.isEmpty())
-	    	{
-	            obs_users.add(user);
-	            userlist.setItems(obs_users);
-	            userlist.getSelectionModel().select(0);
-	    	}
+			if (users.contains(user))
+			{
+				Alert error = new Alert(AlertType.ERROR, "User already exists");
+				error.showAndWait();
+			}
 			else
 			{
-				int i = 0;
-	    		for (; i < obs_users.size(); i++)
-		    	{	    		
-		            if (user.compareTo(obs_users.get(i)) < 0)
-		            {
-		                break;
-		            }
+				if (users.isEmpty())
+		    	{
+		            users.add(user);
+		            userlist.setItems(users);
+		            userlist.getSelectionModel().select(0);
 		    	}
-	    		obs_users.add(i, user);
-		        userlist.setItems(obs_users);
-		        userlist.getSelectionModel().select(user);
+				else
+				{
+					int i = 0;
+		    		for (; i < users.size(); i++)
+			    	{	    		
+			            if (user.compareTo(users.get(i)) < 0)
+			            {
+			                break;
+			            }
+			    	}
+		    		users.add(i, user);
+			        userlist.setItems(users);
+			        userlist.getSelectionModel().select(user);
+				}
+				delete.setDisable(false);
 			}
-			delete.setDisable(false);
 		}
 		namefield.clear();
 	}
@@ -83,13 +85,13 @@ public class AdminController extends MainController
     	}
     	else
     	{
-    		ObservableList<User> obs_users = model.getObsUsers();
-    		int size = obs_users.size();
+    		ObservableList<User> users = model.getUsers();
+    		int size = users.size();
     	
-	    	User user = obs_users.get(index);
-	    	obs_users.remove(index);
+	    	User user = users.get(index);
+	    	users.remove(index);
 	    	model.deleteUser(user);;
-	        userlist.setItems(obs_users);
+	        userlist.setItems(users);
 	        
 	        if (size > index + 1)
 	        {
@@ -103,12 +105,11 @@ public class AdminController extends MainController
 	        {
 	        	userlist.getSelectionModel().select(0);
         	}
-	    	if (obs_users.isEmpty())
+	    	if (users.isEmpty())
 	    	{
 	    		delete.setDisable(true);
 	    	}
     	}
-    	namefield.clear();
 	}
 	
 	public void doAbout()

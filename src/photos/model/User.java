@@ -99,4 +99,15 @@ public class User implements Comparable<User>
 	{
 		return name.compareToIgnoreCase(user.name);
 	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if ((o == null) || !(o instanceof User))
+		{
+			return false;
+		}
+		User other = (User) o;
+		return name.equals(other.name);
+	}
 }

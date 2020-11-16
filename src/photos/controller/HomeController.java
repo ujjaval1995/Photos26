@@ -69,6 +69,10 @@ public class HomeController extends MainController
 	public void doAdd()
 	{
 		ObservableList<Album> obs_albums = model.getCurrentUser().getObsAlbums();
+		String name = albumfield.getText().trim();
+		
+		// if (obs_albums.contains(o))
+		
 		
 		table.setItems(obs_albums);
 		

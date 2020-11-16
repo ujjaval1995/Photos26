@@ -22,16 +22,17 @@ public class LoginController extends MainController
 	public void doLogin()
 	{
 		String name = namefield.getText().trim();
+		
 		if (name.equals(Model.ADMIN))
 		{
 			toAdmin();
 		}
 		else
 		{
-			User user = model.getUser(name);
-			if (user != null)
+			User user = new User(name);
+			if (model.getUsers().contains(user))
 			{
-				model.setCurrentUser(user);
+				model.setCurrentUser(name);
 				toHome();
 			}
 			else

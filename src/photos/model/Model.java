@@ -1,7 +1,5 @@
 package photos.model;
 
-import java.util.*;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -9,19 +7,16 @@ public class Model
 {
 	public static final String ADMIN = "admin";
 	
-	private ArrayList<User> users;
-	private User current_user;
-	private ObservableList<User> obs_users;
+	private User currentUser;
+	private ObservableList<User> users;
 	
 	public Model()
 	{
-		users = new ArrayList<>();
-		current_user = null;
-		obs_users = FXCollections.observableArrayList();
+		users = FXCollections.observableArrayList();
+		currentUser = null;
 		
 		User stock = new User("stock");
 		users.add(stock);
-		obs_users.add(stock);
 		
 		Album pokemon = new Album("Pokemon");
 		Album cs_department = new Album("CS Department");
@@ -54,55 +49,35 @@ public class Model
 		stock.getAlbum(students).addPhoto(ujjaval);
 	}
 	
-	public ArrayList<User> getUsers()
-	{
-		return users;
-	}
 	
-	public User getUser(String name)
+	public User getCurrentUser()
+	{
+        return currentUser;
+    }
+
+	public void setCurrentUser(String name)
 	{
 		for (User user : users)
 		{
 			if (user.getName().equals(name))
 			{
-				return user;
+				currentUser = user;
 			}
 		}
-		return null;
 	}
 	
-	public User getCurrentUser()
+	public ObservableList<User> getUsers()
 	{
-        return current_user;
-    }
+		return users;
+	}
 	
 	public void addUser(User user)
 	{
 		users.add(user);
 	}
 	
-	public void addUser(String name)
-	{
-		users.add(new User(name));
-	}
-	
 	public void deleteUser(User user)
 	{
 		users.remove(user);
 	}
-	
-	public void setCurrentUser(User user)
-	{
-		current_user = user;
-	}
-	
-	public ObservableList<User> getObsUsers()
-	{
-        return obs_users;
-    }
-
-	public ObservableList<User> AddObsUser()
-	{
-        return obs_users;
-    }
 }
