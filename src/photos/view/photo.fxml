@@ -50,8 +50,8 @@
          <content>
             <TableView fx:id="tagTable" prefHeight="242.0" prefWidth="289.0" style="-fx-background-color: gray;">
               <columns>
-                <TableColumn prefWidth="126.0" text="Tag Type" />
-                <TableColumn prefWidth="160.0" text="Tag Value" />
+                <TableColumn editable="false" prefWidth="125.0" text="Tag Type" />
+                <TableColumn prefWidth="161.0" sortable="false" text="Tag Value" />
               </columns>
             </TableView>
          </content>
