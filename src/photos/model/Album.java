@@ -66,4 +66,15 @@ public class Album implements Comparable<Album>
 	{
 		return name.compareToIgnoreCase(album.name);
 	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if ((o == null) || !(o instanceof Album))
+		{
+			return false;
+		}
+		Album other = (Album) o;
+		return name.equals(other.name);
+	}
 }

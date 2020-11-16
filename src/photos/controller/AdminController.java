@@ -37,7 +37,7 @@ public class AdminController extends MainController
 			Alert error = new Alert(AlertType.ERROR, "Username cannot be \"admin\"");
             error.showAndWait();
 		}
-		else
+		else if (name.length() != 0)
 		{
 			User user = new User(name);
 			
