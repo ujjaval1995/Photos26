@@ -1,5 +1,7 @@
 package photos.controller;
 
+import java.time.LocalDate;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -16,8 +18,8 @@ public class HomeController extends MainController
 	@FXML TableView<Album> table;
 	@FXML TableColumn<Album, String> name_col;
 	@FXML TableColumn<Album, Integer> photos_col;
-	@FXML TableColumn<Album, String> start_col;
-	@FXML TableColumn<Album, String> end_col;
+	@FXML TableColumn<Album, LocalDate> start_col;
+	@FXML TableColumn<Album, LocalDate> end_col;
 	
 	@FXML TextField albumfield;
 	@FXML Button add;
@@ -37,6 +39,11 @@ public class HomeController extends MainController
 	@FXML CheckBox createablum;
 	@FXML Button searchbytag;
 	
+	public void initialize()
+	{
+		
+	}
+	
 	public void init()
 	{
 		model.getCurrentUser().setCurrentAlbum(null);
@@ -44,10 +51,20 @@ public class HomeController extends MainController
 		value1field.clear();
 		value2field.clear();
 		single.setSelected(true);
+		
+		ObservableList<Album> obs_albums = model.getCurrentUser().getObsAlbums();
+		table.setItems(obs_albums);
+		if (model.getCurrentUser().getAlbums().size() > 0)
+		{
+        	table.getSelectionModel().select(0);
+        }
 	}
 	
 	public void doAdd()
 	{
+		ObservableList<Album> obs_albums = model.getCurrentUser().getObsAlbums();
+		
+		table.setItems(obs_albums);
 		
 	}
 	

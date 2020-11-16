@@ -67,17 +67,21 @@ public class User implements Comparable<User>
 	
 	public void addAlbum(String name)
 	{
-		albums.add(new Album(name));
+		Album album = new Album(name);
+		albums.add(album);
+		obs_albums.add(album);
 	}
 	
 	public void addAlbum(Album album)
 	{
 		albums.add(album);
+		obs_albums.add(album);
 	}
 	
 	public void deleteAlbum(Album album)
 	{
 		albums.remove(album);
+		obs_albums.remove(album);
 	}
 	
 	public void setCurrentAlbum(Album album)
