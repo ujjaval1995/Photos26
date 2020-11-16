@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import photos.model.*;
 
 public class HomeController extends MainController
@@ -41,6 +42,11 @@ public class HomeController extends MainController
 	
 	public void initialize()
 	{
+		name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
+		photos_col.setCellValueFactory(new PropertyValueFactory<>("photo_count"));
+		start_col.setCellValueFactory(new PropertyValueFactory<>("start_date"));
+		end_col.setCellValueFactory(new PropertyValueFactory<>("end_date"));
+		
 		
 	}
 	
