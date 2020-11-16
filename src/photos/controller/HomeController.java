@@ -39,7 +39,11 @@ public class HomeController extends MainController
 	
 	public void init()
 	{
-		
+		model.getCurrentUser().setCurrentAlbum(null);
+		albumfield.clear();
+		value1field.clear();
+		value2field.clear();
+		single.setSelected(true);
 	}
 	
 	public void doAdd()

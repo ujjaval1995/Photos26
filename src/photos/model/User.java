@@ -9,14 +9,14 @@ public class User implements Comparable<User>
 {
 	private String name;
 	private ArrayList<Album> albums;
-	private Album select_album;
+	private Album current_album;
 	private ObservableList<Album> obs_albums;
 
 	public User(String name)
 	{
 		this.name = name;
 		albums = new ArrayList<>();
-		select_album = null;
+		current_album = null;
 		obs_albums = null;
 		obs_albums = FXCollections.observableArrayList();
 	}
@@ -55,9 +55,9 @@ public class User implements Comparable<User>
 		return null;
 	}
 	
-	public Album getSelectedAlbum()
+	public Album getCurrentAlbum()
 	{
-		return select_album;
+		return current_album;
 	}
 
 	public ObservableList<Album> getObsAlbums()
@@ -80,9 +80,9 @@ public class User implements Comparable<User>
 		albums.remove(album);
 	}
 	
-	public void setSelectedAlbum(Album album)
+	public void setCurrentAlbum(Album album)
 	{
-        select_album = album;
+        current_album = album;
     }
 	
 	@Override
