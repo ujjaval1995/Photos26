@@ -111,9 +111,9 @@ public class MainController
 
 	public static void toAlbum()
 	{
-	//	album_ctrl.init();
-	//	stage.setScene(album_scene);
-	//	stage.setTitle("Welcome " + model.getCurrentUser());
+		album_ctrl.init();
+		stage.setScene(album_scene);
+		stage.setTitle("Album " + model.getCurrentUser().getCurrentAlbum());
 	}
 	
 	public void doHome()
