@@ -32,6 +32,10 @@
             </Menu>
          </menus>
       </MenuBar>
-      <TilePane layoutX="6.0" layoutY="29.0" prefHeight="568.0" prefWidth="891.0" style="-fx-border-color: orange;" />
+      <ScrollPane layoutY="29.0" prefHeight="570.0" prefWidth="900.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="569.0" prefWidth="882.0" />
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
