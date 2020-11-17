@@ -25,26 +25,26 @@ public class Model
 		stock.addAlbum(cs_department);
 		stock.addAlbum(students);
 		
-		Photo bulbasaur = new Photo();
-		Photo squirtle = new Photo();
-		Photo charmander = new Photo();
-		Photo pikachu = new Photo();
+		Photo bulbasaur = new Photo("data/001.png");
+		Photo squirtle = new Photo("data/004.png");
+		Photo charmander = new Photo("data/007.png");
+		Photo pikachu = new Photo("data/025.png");
 		stock.getAlbum(pokemon).addPhoto(bulbasaur);
 		stock.getAlbum(pokemon).addPhoto(squirtle);
 		stock.getAlbum(pokemon).addPhoto(charmander);
 		stock.getAlbum(pokemon).addPhoto(pikachu);
 		
-		Photo franny = new Photo();
-		Photo guna = new Photo();
-		Photo santosh = new Photo();
-		Photo sesh = new Photo();
+		Photo franny = new Photo("data/Franny.jpg");
+		Photo guna = new Photo("data/Guna.jpg");
+		Photo santosh = new Photo("data/Santosh.jpg");
+		Photo sesh = new Photo("data/Sesh.jpg");
 		stock.getAlbum(cs_department).addPhoto(franny);
 		stock.getAlbum(cs_department).addPhoto(guna);
 		stock.getAlbum(cs_department).addPhoto(santosh);
 		stock.getAlbum(cs_department).addPhoto(sesh);
 		
-		Photo jishnu = new Photo();
-		Photo ujjaval = new Photo();
+		Photo jishnu = new Photo("data/Jishnu.jpg");
+		Photo ujjaval = new Photo("data/Ujjaval.jpg");
 		stock.getAlbum(students).addPhoto(jishnu);
 		stock.getAlbum(students).addPhoto(ujjaval);
 	}

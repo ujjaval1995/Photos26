@@ -1,8 +1,11 @@
 package photos.controller;
 
+import java.io.File;
 import javafx.fxml.FXML;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import photos.model.Album;
 
 public class AlbumController extends MainController
@@ -12,6 +15,16 @@ public class AlbumController extends MainController
 	public void init()
 	{
 		refreshMenu();
+	}
+	
+	public void addPhotoFile()
+	{
+		FileChooser fc = new FileChooser();
+        fc.setTitle("Open Photo");
+		FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
+		fc.getExtensionFilters().add(imageFilter);
+		
+        File file = fc.showOpenDialog(new Stage());
 	}
 	
 

@@ -1,6 +1,8 @@
 package photos.model;
 
 import java.util.*;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import java.time.LocalDate;
 
 public class Album implements Comparable<Album>
@@ -10,6 +12,7 @@ public class Album implements Comparable<Album>
 	private LocalDate startDate;
 	private LocalDate endDate;
 	private ArrayList<Photo> photos;
+	ObservableList<Node> list;
 	
 	public Album(String name)
 	{
