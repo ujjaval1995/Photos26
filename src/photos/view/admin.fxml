@@ -21,7 +21,7 @@
             <Menu mnemonicParsing="false" text="Navigate">
                <items>
                   <MenuItem fx:id="home" disable="true" mnemonicParsing="false" text="Home" />
-                  <Menu mnemonicParsing="false" text="Album" />
+                  <Menu disable="true" mnemonicParsing="false" text="Album" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
