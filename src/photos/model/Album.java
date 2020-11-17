@@ -19,6 +19,11 @@ public class Album implements Comparable<Album>
 		endDate = null;
 		photos = new ArrayList<>();
 	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
 	
 	public String getName()
 	{

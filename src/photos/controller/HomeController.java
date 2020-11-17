@@ -2,6 +2,7 @@ package photos.controller;
 
 import java.time.LocalDate;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -9,11 +10,13 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import photos.model.*;
 
 public class HomeController extends MainController
@@ -49,6 +52,26 @@ public class HomeController extends MainController
 		photos_col.setCellValueFactory(new PropertyValueFactory<>("photoCount"));
 		start_col.setCellValueFactory(new PropertyValueFactory<>("startDate"));
 		end_col.setCellValueFactory(new PropertyValueFactory<>("endDate"));
+		
+		table.setEditable(true);
+		name_col.setCellFactory(TextFieldTableCell.forTableColumn());
+		name_col.setOnEditCommit(
+            new EventHandler<CellEditEvent<Album, String>>()
+            {
+                @Override
+                public void handle(CellEditEvent<Album, String> namecell)
+                {
+                	ObservableList<Album> albums = model.getCurrentUser().getAlbums();
+                	String name = namecell.getNewValue().trim();
+            		
+            		if (name.length() > 0 && !albums.contains(new Album(name)))
+            		{
+            			table.getSelectionModel().getSelectedItem().setName(name);
+            		}
+        			table.refresh();
+                }
+            }
+        );
 	}
 	
 	public void init()
