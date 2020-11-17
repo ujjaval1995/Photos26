@@ -106,14 +106,14 @@ public class MainController
 	{
 		photo_ctrl.init();
 		stage.setScene(photo_scene);
-		stage.setTitle("Album " + model.getCurrentUser().getCurrentAlbum());
+		stage.setTitle("Album - " + model.getCurrentUser().getCurrentAlbum() + " (Photo View)");
 	}
 
-	public static void toAlbum()
+	public static void toAlbum(String name)
 	{
 		album_ctrl.init();
 		stage.setScene(album_scene);
-		stage.setTitle("Album " + model.getCurrentUser().getCurrentAlbum());
+		stage.setTitle("Album - " + model.getCurrentUser().getCurrentAlbum());
 	}
 	
 	public void doHome()

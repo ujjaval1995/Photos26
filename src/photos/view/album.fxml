@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: darkslategray; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.controller.AlbumController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: darkslategray; -fx-border-color: orange;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photos.controller.AlbumController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="900.0" style="-fx-background-color: darkgray;">
          <menus>
@@ -22,7 +19,7 @@
             <Menu mnemonicParsing="false" text="Navigate">
                <items>
                   <MenuItem fx:id="home" mnemonicParsing="false" onAction="#doHome" text="Home" />
-                  <Menu mnemonicParsing="false" text="Album" />
+                  <Menu fx:id="albummenu" mnemonicParsing="false" text="Album" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">

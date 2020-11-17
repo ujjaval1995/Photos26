@@ -36,6 +36,17 @@ public class User implements Comparable<User>
         currentAlbum = album;
     }
 	
+	public void setCurrentAlbum(String name)
+	{
+		for (Album album : albums)
+		{
+			if (album.getName().equals(name))
+			{
+				currentAlbum = album;
+			}
+		}
+    }
+	
 	public Album getAlbum(String name)
 	{
 		for (Album album : albums)

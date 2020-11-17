@@ -8,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
@@ -17,6 +19,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseButton;
 import photos.model.*;
 
 public class HomeController extends MainController
@@ -46,6 +49,8 @@ public class HomeController extends MainController
 	@FXML CheckBox createablum;
 	@FXML Button searchbytag;
 	
+	@FXML Menu albummenu;
+	
 	public void initialize()
 	{
 		name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -72,11 +77,23 @@ public class HomeController extends MainController
                 }
             }
         );
+		
+		table.setOnMouseClicked(event ->
+		{
+			if (!event.getButton().equals(MouseButton.PRIMARY) || event.getClickCount() != 1)
+			{
+				if (event.getButton().equals(MouseButton.PRIMARY) && event.getClickCount() == 2)
+				{
+					model.getCurrentUser().setCurrentAlbum(table.getSelectionModel().getSelectedItem());
+                    toAlbum(table.getSelectionModel().getSelectedItem().getName());
+                }
+			}
+		});
 	}
 	
 	public void init()
 	{
-		model.getCurrentUser().setCurrentAlbum(null);
+		model.getCurrentUser().setCurrentAlbum((Album) null);
 		namefield.clear();
 		value1field.clear();
 		value2field.clear();
@@ -88,6 +105,7 @@ public class HomeController extends MainController
 		{
         	table.getSelectionModel().select(0);
         }
+		refreshMenu();
 	}
 	
 	public void doAdd()
@@ -128,6 +146,7 @@ public class HomeController extends MainController
 			}
 		}
 		namefield.clear();
+		refreshMenu();
 	}
 	
 	public void doDelete()
@@ -136,5 +155,22 @@ public class HomeController extends MainController
 		Album album = table.getSelectionModel().getSelectedItem();
 		albums.remove(album);
 		table.setItems(albums);
+		refreshMenu();
+	}
+	
+	public void refreshMenu()
+	{
+		albummenu.getItems().clear();
+		for (Album album : model.getCurrentUser().getAlbums())
+		{
+        	MenuItem item = new MenuItem(album.getName());
+        	item.setOnAction(e ->
+        	{
+        		MenuItem item1 = (MenuItem) e.getSource();
+        		model.getCurrentUser().setCurrentAlbum(item1.getText());
+        		toAlbum(item1.getText());
+            });
+        	albummenu.getItems().add(item);
+    	}
 	}
 }
