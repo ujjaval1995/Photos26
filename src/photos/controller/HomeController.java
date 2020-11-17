@@ -26,6 +26,7 @@ public class HomeController extends MainController
 	
 	@FXML TextField namefield;
 	@FXML Button add;
+	@FXML Button delete;
 	
 	@FXML DatePicker fromdate;
 	@FXML DatePicker todate;
@@ -81,8 +82,26 @@ public class HomeController extends MainController
 			}
 			else
 			{
-				albums.add(album);
-				table.setItems(albums);
+				if (albums.isEmpty())
+		    	{
+		            albums.add(album);
+		            table.setItems(albums);
+		            table.getSelectionModel().select(0);
+		    	}
+				else
+				{
+					int i = 0;
+		    		for (; i < albums.size(); i++)
+			    	{	    		
+			            if (album.compareTo(albums.get(i)) < 0)
+			            {
+			                break;
+			            }
+			    	}
+		    		albums.add(i, album);
+			        table.setItems(albums);
+			        table.getSelectionModel().select(album);
+				}
 			}
 		}
 		namefield.clear();

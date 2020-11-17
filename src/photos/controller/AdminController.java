@@ -68,7 +68,6 @@ public class AdminController extends MainController
 			        userlist.setItems(users);
 			        userlist.getSelectionModel().select(user);
 				}
-				delete.setDisable(false);
 			}
 		}
 		namefield.clear();
@@ -76,40 +75,10 @@ public class AdminController extends MainController
 	
 	public void doDelete()
 	{
-		int index = userlist.getSelectionModel().getSelectedIndex();
-    	
-    	if (index < 0)
-    	{
-    		Alert error = new Alert(AlertType.ERROR, "No user selected");
-            error.showAndWait();
-    	}
-    	else
-    	{
-    		ObservableList<User> users = model.getUsers();
-    		int size = users.size();
-    	
-	    	User user = users.get(index);
-	    	users.remove(index);
-	    	model.deleteUser(user);;
-	        userlist.setItems(users);
-	        
-	        if (size > index + 1)
-	        {
-	            userlist.getSelectionModel().select(index);
-	        }
-	        else if (size >= 2)
-	        {
-	            userlist.getSelectionModel().select(index-1);
-	        }
-	        else
-	        {
-	        	userlist.getSelectionModel().select(0);
-        	}
-	    	if (users.isEmpty())
-	    	{
-	    		delete.setDisable(true);
-	    	}
-    	}
+		ObservableList<User> users = model.getUsers();
+		User user = userlist.getSelectionModel().getSelectedItem();
+		users.remove(user);
+		userlist.setItems(users);
 	}
 	
 	public void doAbout()
