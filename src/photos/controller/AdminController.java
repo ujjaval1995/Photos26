@@ -80,9 +80,4 @@ public class AdminController extends MainController
 		users.remove(user);
 		userlist.setItems(users);
 	}
-	
-	public void doAbout()
-	{
-		// complete
-	}
 }

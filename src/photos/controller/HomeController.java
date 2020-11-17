@@ -137,9 +137,4 @@ public class HomeController extends MainController
 		albums.remove(album);
 		table.setItems(albums);
 	}
-	
-	public void doAbout()
-	{
-		// complete
-	}
 }

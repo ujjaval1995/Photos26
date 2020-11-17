@@ -130,4 +130,9 @@ public class MainController
 	{
 		Platform.exit();
 	}
+	
+	public void doAbout()
+	{
+		// complete
+	}
 }

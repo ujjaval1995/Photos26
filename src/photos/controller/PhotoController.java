@@ -7,9 +7,4 @@ public class PhotoController extends MainController
 	{
 		
 	}
-	
-	public void doAbout()
-	{
-		// complete
-	}
 }
