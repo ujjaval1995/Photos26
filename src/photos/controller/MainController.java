@@ -104,9 +104,9 @@ public class MainController
 
 	public static void toPhoto()
 	{
-	//	photo_ctrl.init();
-	//	stage.setScene(photo_scene);
-	//	stage.setTitle();
+		photo_ctrl.init();
+		stage.setScene(photo_scene);
+		stage.setTitle("Album " + model.getCurrentUser().getCurrentAlbum());
 	}
 
 	public static void toAlbum()
