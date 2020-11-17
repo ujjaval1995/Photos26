@@ -90,7 +90,10 @@ public class HomeController extends MainController
 	
 	public void doDelete()
 	{
-		
+		ObservableList<Album> albums = model.getCurrentUser().getAlbums();
+		Album album = table.getSelectionModel().getSelectedItem();
+		albums.remove(album);
+		table.setItems(albums);
 	}
 	
 	public void doAbout()
