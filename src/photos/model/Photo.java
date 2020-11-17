@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 public class Photo
 {
+	private String path;
 	private File file;
 	private UUID id;
 	private String caption;
@@ -21,13 +22,19 @@ public class Photo
 		tags = new HashMap<>();
 	}
 
-	public Photo(String name)
+	public Photo(String path)
 	{
-		file = new File(name);
+		this.path = path;
+		file = new File(path);
 		id = UUID.randomUUID();
-		caption = name;
+		caption = path;
 		datetime = null;
 		tags = new HashMap<>();
+	}
+	
+	public String getPath()
+	{
+		return path;
 	}
 	
 	public File getFile()

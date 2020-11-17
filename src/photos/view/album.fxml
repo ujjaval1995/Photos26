@@ -29,6 +29,6 @@
             </Menu>
          </menus>
       </MenuBar>
-      <TilePane layoutX="10.0" layoutY="33.0" prefHeight="557.0" prefWidth="879.0" style="-fx-background-color: darkgray; -fx-border-color: orange;" />
+      <TilePane fx:id="tile" layoutX="10.0" layoutY="33.0" prefHeight="557.0" prefWidth="879.0" style="-fx-background-color: darkgray; -fx-border-color: orange;" />
    </children>
 </AnchorPane>
