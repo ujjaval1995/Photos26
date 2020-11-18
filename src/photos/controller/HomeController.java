@@ -43,8 +43,8 @@ public class HomeController extends MainController
 	@FXML DatePicker todate;
 	@FXML Button searchbydate;
 
-	// add key 1
-	// add key 2
+	@FXML TextField name1field;
+	@FXML TextField name2field; 
 	@FXML TextField value1field;
 	@FXML TextField value2field;
 	@FXML ToggleGroup group;
