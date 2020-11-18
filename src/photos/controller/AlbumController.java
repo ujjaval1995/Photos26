@@ -3,7 +3,10 @@ package photos.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
@@ -20,38 +23,34 @@ public class AlbumController extends MainController
 	@FXML Menu albummenu;
 	@FXML TilePane tile;
 	
-	public void initialize()
-	{
-		tile = new TilePane();
-	}
-	
 	public void init()
 	{
 		// DEBUG THIS ---------------------------------------------------------
 		
-		// i am trying to display 001.png in the tilepane
+		ObservableList<Node> obslist = tile.getChildren();
 		
 		if (model.getCurrentUser().getCurrentAlbum().getPhotoCount() > 0)
 		{
-			try
+			for (int i=0; i<20; i++)
 			{
-		        Image image = new Image(new FileInputStream("data/001.png"));
-		        ImageView view = new ImageView(image);
-		        view.setImage(image);
-		        view.setFitWidth(400);
-		        view.setFitHeight(300);
-		        
-		        VBox vbox = new VBox(4);
-		        vbox.getChildren().addAll(view);
-		        BorderPane viewWrapper = new BorderPane(vbox);
-		        
-		        tile.getChildren().add(viewWrapper);
-		        
-		    }
-			catch (FileNotFoundException e)
-			{
-		        e.printStackTrace();
-		    }
+				try
+				{
+			        Image image = new Image(new FileInputStream("data/001.png"));
+			        ImageView view = new ImageView(image);
+			        view.setImage(image);
+			        view.setFitWidth(120);
+			        view.setFitHeight(80);
+			        //obslist.add(new Photo("data/001.png").getNode());
+			        
+			        tile.getChildren().add(view);
+			        
+			    }
+				catch (FileNotFoundException e)
+				{
+			        e.printStackTrace();
+			    }
+			}
+			
 		}
 		
 		// --------------------------------------------------------------------

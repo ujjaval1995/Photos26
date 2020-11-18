@@ -5,6 +5,7 @@ import java.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
+
 import java.time.LocalDate;
 
 public class Album implements Comparable<Album>
@@ -61,6 +62,7 @@ public class Album implements Comparable<Album>
 	public void addPhoto(Photo photo)
 	{
 		photos.add(photo);
+		obslist.add(photo.getNode());
 		photoCount++;
 	}
 	

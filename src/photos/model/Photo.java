@@ -1,7 +1,14 @@
 package photos.model;
 
 import java.util.*;
+
+import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 
 public class Photo
@@ -60,5 +67,27 @@ public class Photo
 	public HashMap<String, HashSet<String>> getTags()
 	{
 		return tags;
+	}
+	
+	public Node getNode()
+	{
+        Image image = null;
+        ImageView view;
+        try
+        {
+            image = new Image(new FileInputStream(getPath()));
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        
+		view = new ImageView(image);
+		view.setFitWidth(600);
+        view.setFitHeight(400);
+        view.setPreserveRatio(true);
+        view.setSmooth(true);
+        view.setImage(image);
+        return view;
 	}
 }
