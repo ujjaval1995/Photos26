@@ -12,4 +12,9 @@ public class PhotoController extends MainController
 	{
 		
 	}
+	
+	public void doDeleteTag()
+	{
+		
+	}
 }
