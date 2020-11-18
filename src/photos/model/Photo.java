@@ -9,7 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
-import java.io.File;
+// import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
@@ -17,29 +17,38 @@ import java.time.LocalDateTime;
 public class Photo
 {
 	private String path;
-	private File file;
+	// private File file;
 	private UUID id;
 	private String caption;
 	private LocalDateTime datetime;
 	private HashMap<String, HashSet<String>> tags;
 	
-	public Photo(File file)
-	{
-		this.file = file;
-		id = UUID.randomUUID();
-		caption = "";
-		datetime = null;
-		tags = new HashMap<>();
-	}
+//	public Photo(File file)
+//	{
+//		this.file = file;
+//		id = UUID.randomUUID();
+//		caption = "";
+//		datetime = null;
+//		tags = new HashMap<>();
+//	}
 
 	public Photo(String path)
 	{
 		this.path = path;
-		file = new File(path);
+		// file = new File(path);
 		id = UUID.randomUUID();
 		caption = path;
 		datetime = null;
 		tags = new HashMap<>();
+	}
+	
+	public Photo(Photo photo)
+	{
+		this.path = photo.getPath();
+		id = UUID.randomUUID();
+		caption = photo.getCaption();
+		datetime = photo.getDatetime();
+		tags = photo.getTags();
 	}
 	
 	public String getPath()
@@ -47,10 +56,10 @@ public class Photo
 		return path;
 	}
 	
-	public File getFile()
-	{
-		return file;
-	}
+//	public File getFile()
+//	{
+//		return file;
+//	}
 	
 	public UUID getId()
 	{

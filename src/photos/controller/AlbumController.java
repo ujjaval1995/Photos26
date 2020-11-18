@@ -21,13 +21,12 @@ public class AlbumController extends MainController implements EventHandler<Mous
 	@FXML TilePane tile;
 	
 	final ContextMenu menu = new ContextMenu();
+	Menu copy = new Menu("Copy");
+	Menu move = new Menu("Move");
+	MenuItem delete = new MenuItem("Delete");
 	
 	public void initialize()
 	{
-		Menu copy = new Menu("Copy");
-		Menu move = new Menu("Move");
-		MenuItem delete = new MenuItem("Delete");
-		
 		delete.setOnAction(e ->
 		{
             Photo photo = (Photo) menu.getUserData();
@@ -83,8 +82,7 @@ public class AlbumController extends MainController implements EventHandler<Mous
 	        	albummenu.getItems().add(item);
 			}
     	}
-	}
-	
+	}	
 
 	@Override
 	public void handle(MouseEvent event)
@@ -99,8 +97,20 @@ public class AlbumController extends MainController implements EventHandler<Mous
 			{
 				Object obj1 = view.getUserData();
 				Photo photo = (Photo) obj1;
-				
-				
+            	
+            	copy.getItems().clear();
+            	for (Album a : model.getCurrentUser().getAlbums())
+            	{
+                	MenuItem item = new MenuItem(a.getName());
+                	item.setOnAction(e ->
+                	{
+                        MenuItem item1 = (MenuItem) e.getSource();
+                        Photo photo1 = (Photo) menu.getUserData();
+                        Album target = model.getCurrentUser().getAlbum(item1.getText());
+                        target.addPhoto(new Photo(photo1));
+                    });
+                	copy.getItems().add(item);
+            	}
 				
 				menu.setUserData(photo);
 	        	menu.show(tile, event.getScreenX(), event.getScreenY());
