@@ -63,25 +63,6 @@ public class AlbumController extends MainController implements EventHandler<Mous
         }
 	}
 
-	public void refreshMenu()
-	{
-		albummenu.getItems().clear();
-		for (Album album : model.getCurrentUser().getAlbums())
-		{
-			if (!album.equals(model.getCurrentUser().getCurrentAlbum()))
-			{
-				MenuItem item = new MenuItem(album.getName());
-	        	item.setOnAction(e ->
-	        	{
-	        		MenuItem item1 = (MenuItem) e.getSource();
-	        		model.getCurrentUser().setCurrentAlbum(item1.getText());
-	        		toAlbum(item1.getText());
-	            });
-	        	albummenu.getItems().add(item);
-			}
-    	}
-	}	
-
 	@Override
 	public void handle(MouseEvent event)
 	{
@@ -93,17 +74,13 @@ public class AlbumController extends MainController implements EventHandler<Mous
 			
 			if (event.getButton().equals(MouseButton.PRIMARY))
 			{
-	            if (event.getClickCount() == 1)
-	            {
-	            	Object obj1 = view.getUserData();
-	            	Photo photo = (Photo) obj1;
-	            }
-	            else
+	            if (event.getClickCount() == 2)
 	            {
 	            	Object obj1 = view.getUserData();
 	            	Photo photo = (Photo) obj1;
 	            	
-	            	toPhoto();
+	            	model.getCurrentUser().getCurrentAlbum().setCurrentPhoto(photo);
+	            	toPhoto(photo);
 	            }
 	        }
 			
@@ -153,6 +130,25 @@ public class AlbumController extends MainController implements EventHandler<Mous
 	        }
 	        event.consume();
 		}
+	}
+
+	public void refreshMenu()
+	{
+		albummenu.getItems().clear();
+		for (Album album : model.getCurrentUser().getAlbums())
+		{
+			if (!album.equals(model.getCurrentUser().getCurrentAlbum()))
+			{
+				MenuItem item = new MenuItem(album.getName());
+	        	item.setOnAction(e ->
+	        	{
+	        		MenuItem item1 = (MenuItem) e.getSource();
+	        		model.getCurrentUser().setCurrentAlbum(item1.getText());
+	        		toAlbum(item1.getText());
+	            });
+	        	albummenu.getItems().add(item);
+			}
+    	}
 	}
 	
 	public void refreshThumbnails()

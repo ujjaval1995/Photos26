@@ -10,7 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import photos.model.Model;
+import photos.model.*;
 
 public class MainController
 {
@@ -107,7 +107,7 @@ public class MainController
 		stage.setTitle("Welcome " + model.getCurrentUser());
 	}
 
-	public static void toPhoto()
+	public static void toPhoto(Photo photo)
 	{
 		photo_ctrl.init();
 		stage.setScene(photo_scene);

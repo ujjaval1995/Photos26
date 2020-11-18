@@ -6,6 +6,8 @@
 package photos.model;
 
 import java.util.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -13,8 +15,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-
-// import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
@@ -22,29 +22,18 @@ import java.time.LocalDateTime;
 public class Photo
 {
 	private String path;
-	// private File file;
 	private UUID id;
 	private String caption;
 	private LocalDateTime datetime;
-	private HashMap<String, HashSet<String>> tags;
-	
-//	public Photo(File file)
-//	{
-//		this.file = file;
-//		id = UUID.randomUUID();
-//		caption = "";
-//		datetime = null;
-//		tags = new HashMap<>();
-//	}
+	private ObservableList<Tag> tags;
 
 	public Photo(String path)
 	{
 		this.path = path;
-		// file = new File(path);
 		id = UUID.randomUUID();
 		caption = path;
 		datetime = null;
-		tags = new HashMap<>();
+		tags = FXCollections.observableArrayList();
 	}
 	
 	public Photo(Photo photo)
@@ -60,11 +49,6 @@ public class Photo
 	{
 		return path;
 	}
-	
-//	public File getFile()
-//	{
-//		return file;
-//	}
 	
 	public UUID getId()
 	{
@@ -86,9 +70,22 @@ public class Photo
 		return datetime;
 	}
 	
-	public HashMap<String, HashSet<String>> getTags()
+	public ObservableList<Tag> getTags()
 	{
 		return tags;
+	}
+	
+	public boolean addTag(Tag tag)
+	{
+		for (Tag tag1 : tags)
+		{
+			if ( (tag1.getName().equals(tag.getName()) && tag1.isSingle()) || (tag1.getName().equals(tag.getName()) && tag1.getValue().equals(tag.getValue())) )
+			{
+				return false;
+			}
+		}
+		tags.add(tag);
+		return true;
 	}
 	
 	public BorderPane getThumbnail(EventHandler<MouseEvent> handler)
