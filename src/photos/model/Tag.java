@@ -1,8 +1,14 @@
 package photos.model;
 
-public class Tag implements Comparable<Tag>
+import java.io.Serializable;
+
+public class Tag implements Comparable<Tag>,Serializable
 {
 	
+	 /**
+     * Serial Version UID
+     */
+	private static final long serialVersionUID = -3857758798627188080L;
 	private String name;
 	private String value;
 	private boolean single;

@@ -6,6 +6,7 @@
 package photos.model;
 
 import java.util.*;
+import java.io.Serializable;
 
 //import javafx.collections.FXCollections;
 //import javafx.collections.ObservableList;
@@ -13,8 +14,12 @@ import java.util.*;
 
 import java.time.LocalDate;
 
-public class Album implements Comparable<Album>
+public class Album implements Comparable<Album>, Serializable
 {
+	/**
+     * Serial Version UID
+     */
+	private static final long serialVersionUID = 4299782837955524379L;
 	private String name;
 	private int photoCount;
 	private LocalDate startDate;

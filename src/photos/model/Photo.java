@@ -17,10 +17,15 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class Photo
+public class Photo implements Serializable
 {
+	 /**
+     * Serial Version UID
+     */
+	private static final long serialVersionUID = 1972277178174046585L;
 	private String path;
 	private UUID id;
 	private String caption;

@@ -14,13 +14,11 @@ public class User implements Comparable<User>, Serializable
 {
 	
 	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-     * Username
+     * Serial Version UID
      */
+	private static final long serialVersionUID = 7071842589774998235L;
+
+
 	private String name;
 	
 	/**

@@ -5,11 +5,19 @@
 */
 package photos.model;
 
+import java.io.Serializable;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Model
+public class Model implements Serializable
 {
+	/**
+     * Serial Version UID
+     */
+	private static final long serialVersionUID = -3317259650904411150L;
+
+
 	public static final String ADMIN = "admin";
 	
 	private ObservableList<User> users;
