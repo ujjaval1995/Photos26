@@ -1,3 +1,8 @@
+/**
+* This class helps with Photo Controller.
+* @author Jishnu Patel
+* @author Ujjaval Shah
+*/
 package photos.controller;
 
 

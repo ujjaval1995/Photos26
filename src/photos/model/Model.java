@@ -1,3 +1,8 @@
+/**
+* This class helps with Main Model.
+* @author Jishnu Patel
+* @author Ujjaval Shah
+*/
 package photos.model;
 
 import javafx.collections.FXCollections;

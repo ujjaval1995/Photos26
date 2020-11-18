@@ -1,10 +1,24 @@
+/**
+* This class helps with User Model.
+* @author Jishnu Patel
+* @author Ujjaval Shah
+*/
 package photos.model;
+
+import java.io.Serializable;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class User implements Comparable<User>
+public class User implements Comparable<User>, Serializable
 {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
 	private String name;
 	private ObservableList<Album> albums;
 	private Album currentAlbum;

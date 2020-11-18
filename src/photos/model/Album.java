@@ -1,3 +1,8 @@
+/**
+* This class helps with Album Model.
+* @author Jishnu Patel
+* @author Ujjaval Shah
+*/
 package photos.model;
 
 import java.util.*;

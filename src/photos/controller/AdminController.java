@@ -1,5 +1,5 @@
 /**
- * This class helps with Admin View.
+ * This class helps with admin View.
  * @author Jishnu Patel
  * @author Ujjaval Shah
  */
