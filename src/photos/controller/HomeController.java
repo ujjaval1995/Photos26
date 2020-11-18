@@ -111,6 +111,7 @@ public class HomeController extends MainController
         	table.getSelectionModel().select(0);
         }
 		refreshMenu();
+		table.refresh();
 	}
 	
 	public void doAdd()

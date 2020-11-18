@@ -40,10 +40,10 @@ public class AlbumController extends MainController
         
         if (file != null)
         {
-//        	Photo photo = new Photo(file);
-//        	model.getCurrentUser().getCurrentAlbum().addPhoto(photo);
-//        	BorderPane wrapper = photo.getThumbnail(this);
-//        	tile.getChildren().add(wrapper);
+        	Photo photo = new Photo(file.getAbsolutePath());
+        	model.getCurrentUser().getCurrentAlbum().addPhoto(photo);
+        	BorderPane wrapper = photo.getThumbnail();
+        	tile.getChildren().add(wrapper);
         }
 	}
 
