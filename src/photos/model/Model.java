@@ -25,11 +25,11 @@ public class Model
 		stock.addAlbum(cs_department);
 		stock.addAlbum(students);
 		
-		// Photo bulbasaur = new Photo("data/001.png");
+		Photo bulbasaur = new Photo("data/001.png");
 		Photo squirtle = new Photo("data/004.png");
 		Photo charmander = new Photo("data/007.png");
 		Photo pikachu = new Photo("data/025.png");
-		// stock.getAlbum(pokemon).addPhoto(bulbasaur);
+		stock.getAlbum(pokemon).addPhoto(bulbasaur);
 		stock.getAlbum(pokemon).addPhoto(squirtle);
 		stock.getAlbum(pokemon).addPhoto(charmander);
 		stock.getAlbum(pokemon).addPhoto(pikachu);

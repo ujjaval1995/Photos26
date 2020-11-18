@@ -2,9 +2,9 @@ package photos.model;
 
 import java.util.*;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
+//import javafx.collections.FXCollections;
+//import javafx.collections.ObservableList;
+//import javafx.scene.Node;
 
 import java.time.LocalDate;
 
@@ -15,7 +15,7 @@ public class Album implements Comparable<Album>
 	private LocalDate startDate;
 	private LocalDate endDate;
 	private ArrayList<Photo> photos;
-	ObservableList<Node> obslist;
+	// ObservableList<Node> obslist;
 	private Photo currentPhoto;
 	
 	public Album(String name)
@@ -25,7 +25,7 @@ public class Album implements Comparable<Album>
 		startDate = null;
 		endDate = null;
 		photos = new ArrayList<>();
-		obslist = FXCollections.observableArrayList();
+		// obslist = FXCollections.observableArrayList();
 		currentPhoto = null;
 	}
 
@@ -62,7 +62,7 @@ public class Album implements Comparable<Album>
 	public void addPhoto(Photo photo)
 	{
 		photos.add(photo);
-		obslist.add(photo.getNode());
+		// obslist.add(photo.getThumbnail());
 		photoCount++;
 	}
 	
@@ -72,10 +72,10 @@ public class Album implements Comparable<Album>
 		photoCount--;
 	}
 	
-	public ObservableList<Node> getObslist()
-	{
-		return obslist;
-	}
+//	public ObservableList<Node> getObslist()
+//	{
+//		return obslist;
+//	}
 	
 	public Photo getCurrentPhoto()
 	{

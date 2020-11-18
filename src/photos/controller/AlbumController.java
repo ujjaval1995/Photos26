@@ -1,19 +1,11 @@
 package photos.controller;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.TilePane;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import photos.model.*;
@@ -25,40 +17,11 @@ public class AlbumController extends MainController
 	
 	public void init()
 	{
-		// DEBUG THIS ---------------------------------------------------------
-		
-		ObservableList<Node> obslist = tile.getChildren();
-		
-		if (model.getCurrentUser().getCurrentAlbum().getPhotoCount() > 0)
-		{
-			for (int i=0; i<20; i++)
-			{
-				try
-				{
-			        Image image = new Image(new FileInputStream("data/001.png"));
-			        ImageView view = new ImageView(image);
-			        view.setImage(image);
-			        view.setFitWidth(120);
-			        view.setFitHeight(80);
-			        //obslist.add(new Photo("data/001.png").getNode());
-			        
-			        tile.getChildren().add(view);
-			        
-			    }
-				catch (FileNotFoundException e)
-				{
-			        e.printStackTrace();
-			    }
-			}
-			
-		}
-		
-		// --------------------------------------------------------------------
-		
+		refreshThumbnail();
 		refreshMenu();
 	}
 	
-	public void addPhotoFile()
+	public void doAdd()
 	{
 		FileChooser fc = new FileChooser();
         fc.setTitle("Open Photo");
@@ -66,6 +29,14 @@ public class AlbumController extends MainController
 		fc.getExtensionFilters().add(imageFilter);
 		
         File file = fc.showOpenDialog(new Stage());
+        
+        if (file != null)
+        {
+//        	Photo photo = new Photo(file);
+//        	model.getCurrentUser().getCurrentAlbum().addPhoto(photo);
+//        	BorderPane wrapper = photo.getThumbnail(this);
+//        	tile.getChildren().add(wrapper);
+        }
 	}
 
 	public void refreshMenu()
@@ -82,5 +53,15 @@ public class AlbumController extends MainController
             });
         	albummenu.getItems().add(item);
     	}
+	}
+	
+	public void refreshThumbnail()
+	{		
+		tile.getChildren().clear();
+		for (Photo photo : model.getCurrentUser().getCurrentAlbum().getPhotos())
+		{
+			BorderPane wrapper = photo.getThumbnail();
+			tile.getChildren().add(wrapper);
+		}
 	}
 }

@@ -1,10 +1,11 @@
 package photos.model;
 
 import java.util.*;
-
-import javafx.scene.Node;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -58,6 +59,11 @@ public class Photo
 	{
 		return caption;
 	}
+
+	public void setCaption(String caption)
+	{
+		this.caption = caption;
+	}
 	
 	public LocalDateTime getDatetime()
 	{
@@ -69,7 +75,7 @@ public class Photo
 		return tags;
 	}
 	
-	public Node getNode()
+	public BorderPane getThumbnail()
 	{
         Image image = null;
         ImageView view;
@@ -81,13 +87,36 @@ public class Photo
         {
             e.printStackTrace();
         }
-        
 		view = new ImageView(image);
-		view.setFitWidth(600);
-        view.setFitHeight(400);
+        view.setFitWidth(150);
+        view.setFitHeight(120);
         view.setPreserveRatio(true);
         view.setSmooth(true);
         view.setImage(image);
-        return view;
+        
+        Photo photo = this;
+        TextField textfield = new TextField(getCaption());
+        textfield.setPrefWidth(150);
+        textfield.setOnAction(event ->
+        {
+            TextField textField = (TextField) event.getSource();
+            String temp = textField.getText().trim();
+            if (temp.length() == 0)
+            {
+                textField.setText(photo.getCaption());
+            }
+            else
+            {
+                photo.setCaption(temp);
+            }
+        });
+        
+        VBox vbox = new VBox(2);
+        vbox.getChildren().addAll(view, textfield);
+        
+        BorderPane wrapper = new BorderPane(vbox);
+        wrapper.setStyle("-fx-border-color: black");
+        
+        return wrapper;
 	}
 }
