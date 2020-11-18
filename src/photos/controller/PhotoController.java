@@ -31,6 +31,25 @@ public class PhotoController extends MainController
 		refreshMenu();
 	}
 	
+	public void initialize()
+	{
+//		pages.setPageFactory(pageIndex ->
+//		{
+//	        Album album = model.getCurrentUser().getCurrentAlbum();
+//	        
+//	        if (album.getPhotoCount() > 0)
+//	        {
+//	            Photo photo = album.getCurrentPhoto();
+//	            return photo.getPicture();
+//	        }
+//	        else
+//	        {
+//	            return null;
+//	        }
+//		});
+	}
+	
+	
 	public void doAddTag()
 	{
 		

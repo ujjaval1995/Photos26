@@ -133,4 +133,10 @@ public class Photo
         
         return wrapper;
 	}
+	
+//	public Node getPicture()
+//	{
+//		
+//	}
+	
 }
