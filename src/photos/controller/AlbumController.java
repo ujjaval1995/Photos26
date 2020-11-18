@@ -2,9 +2,11 @@ package photos.controller;
 
 import java.io.File;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.TilePane;
@@ -29,14 +31,22 @@ public class AlbumController extends MainController
 		MenuItem delete = new MenuItem("Delete");
     	delete.setOnAction(e ->
     	{
-//    		Object objexct = e.getSource();
-//    		
-//    		
-//            Photo photo = (Photo) menu.getUserData();
-//            User user = model.getCurrentUser();
-//            Album album = user.getCurrentAlbum();
-//            
-//            int index = album.deletePhoto();
+    		Object obj = e.getSource();
+    		
+    		System.out.println(obj);
+    		
+    		if (obj instanceof ImageView)
+    		{
+    			System.out.println("img");
+    			
+    			ImageView view = (ImageView) obj;
+    			Object obj1 = view.getUserData();
+            	Photo photo = (Photo) obj1;
+            	User user = model.getCurrentUser();
+                Album album = user.getCurrentAlbum();
+                album.deletePhoto(photo);
+                refreshThumbnails();
+    		}
         });
     	menu.getItems().add(delete);
 	}
@@ -55,15 +65,15 @@ public class AlbumController extends MainController
 		FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
 		fc.getExtensionFilters().add(imageFilter);
 		
-        File file = fc.showOpenDialog(new Stage());
-        
-        if (file != null)
-        {
-        	Photo photo = new Photo(file.getAbsolutePath());
-        	model.getCurrentUser().getCurrentAlbum().addPhoto(photo);
-        	BorderPane wrapper = photo.getThumbnail();
-        	tile.getChildren().add(wrapper);
-        }
+//        File file = fc.showOpenDialog(new Stage());
+//        
+//        if (file != null)
+//        {
+//        	Photo photo = new Photo(file.getAbsolutePath());
+//        	model.getCurrentUser().getCurrentAlbum().addPhoto(photo);
+//        	BorderPane wrapper = photo.getThumbnail(this);
+//        	tile.getChildren().add(wrapper);
+//        }
 	}
 
 	public void refreshMenu()
@@ -90,15 +100,16 @@ public class AlbumController extends MainController
 		tile.getChildren().clear();
 		for (Photo photo : model.getCurrentUser().getCurrentAlbum().getPhotos())
 		{
-			BorderPane wrapper = photo.getThumbnail();
+			BorderPane wrapper = photo.getThumbnail(e -> menu.show((Node) e.getSource(), e.getScreenX(), e.getScreenY()));
 			tile.getChildren().add(wrapper);
-			wrapper.setOnMouseClicked(event ->
-	        {
-	            if (event.getButton() == MouseButton.SECONDARY)
-	            {
-	                menu.show(wrapper, event.getScreenX(), event.getScreenY());
-	            }
-	        });
+			wrapper.setOnContextMenuRequested(e -> menu.show(wrapper, e.getScreenX(), e.getScreenY()));
+//			wrapper.setOnMouseClicked(event ->
+//	        {
+//	            if (event.getButton() == MouseButton.SECONDARY)
+//	            {
+//	                menu.show(wrapper, event.getScreenX(), event.getScreenY());
+//	            }
+//	        });
 		}
 	}
 	

@@ -1,9 +1,14 @@
 package photos.model;
 
 import java.util.*;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -75,7 +80,7 @@ public class Photo
 		return tags;
 	}
 	
-	public BorderPane getThumbnail()
+	public BorderPane getThumbnail(EventHandler<ContextMenuEvent> handler)
 	{
         Image image = null;
         ImageView view;
@@ -93,6 +98,9 @@ public class Photo
         view.setPreserveRatio(true);
         view.setSmooth(true);
         view.setImage(image);
+        
+        view.setUserData(this);
+        view.setOnContextMenuRequested(handler);
         
         Photo photo = this;
         TextField textfield = new TextField(getCaption());

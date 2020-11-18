@@ -7,7 +7,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
@@ -73,18 +72,8 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <MenuButton fx:id="tagname1" layoutX="624.0" layoutY="375.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Tag Name">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </MenuButton>
-      <MenuButton fx:id="tagname2" layoutX="624.0" layoutY="464.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Tag Name">
-         <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-         </items>
-      </MenuButton>
+      <TextField fx:id="name1field" layoutX="624.0" layoutY="374.0" prefHeight="26.0" prefWidth="100.0" promptText="Tag Name" />
+      <TextField fx:id="name2field" layoutX="624.0" layoutY="463.0" prefHeight="26.0" prefWidth="100.0" promptText="Tag Value" />
       <TextField fx:id="value1field" layoutX="738.0" layoutY="375.0" promptText="Tag Value" />
       <TextField fx:id="value2field" layoutX="738.0" layoutY="464.0" promptText="Tag Value" />
       <HBox alignment="CENTER" layoutX="624.0" layoutY="417.0" prefHeight="30.0" prefWidth="260.0">
