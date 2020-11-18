@@ -34,36 +34,62 @@ public class Album implements Comparable<Album>
 		currentPhoto = null;
 	}
 
+	/**
+     * Set Name of the album
+     */
+	
 	public void setName(String name)
 	{
 		this.name = name;
 	}
+	
+	/**
+     * Name of the album
+     */
 	
 	public String getName()
 	{
 		return name;
 	}
 	
+	/**
+     * Number of photos in the album
+     */
+	
 	public int getPhotoCount()
 	{
 		return photoCount;
 	}
 	
+	/**
+     * Start Date of the Album
+     */
 	public LocalDate getStartDate()
 	{
 		return startDate;
 	}
 	
+	
+	/**
+     * End Date of the album
+     */
 	public LocalDate getEndDate()
 	{
 		return endDate;
 	}
 	
+	
+	/**
+     * List of photos in the album
+     */
 	public ArrayList<Photo> getPhotos()
 	{
 		return photos;
 	}
 	
+	/**
+     * Method to add photo in the album
+     */
 	public void addPhoto(Photo photo)
 	{
 		photos.add(photo);
@@ -71,6 +97,10 @@ public class Album implements Comparable<Album>
 		photoCount++;
 	}
 	
+	
+	/**
+     * Method to delete photo from the album
+     */
 	public void deletePhoto(Photo photo)
 	{
 		photos.remove(photo);
@@ -82,16 +112,27 @@ public class Album implements Comparable<Album>
 //		return obslist;
 //	}
 	
+	
+	/**
+     * Method to get current photo in the album
+     */
 	public Photo getCurrentPhoto()
 	{
 		return currentPhoto;
 	}
+	
+	/**
+     * Method to set current photo in the album
+     */
 	
 	public void setCurrentPhoto(Photo photo)
 	{
 		currentPhoto = photo;
 	}
 	
+	/**
+     * Name of the album to add/delete
+     */
 	@Override
 	public String toString()
 	{

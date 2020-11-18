@@ -54,12 +54,18 @@ public class Model
 		stock.getAlbum(students).addPhoto(ujjaval);
 	}
 	
-	
+	/**
+     * Method to get Current User
+     */
 	public User getCurrentUser()
 	{
         return currentUser;
     }
 
+	
+	/**
+     * Method to set Current User
+     */
 	public void setCurrentUser(String name)
 	{
 		for (User user : users)
@@ -71,16 +77,27 @@ public class Model
 		}
 	}
 	
+	
+	/**
+     * List of Users
+     */
 	public ObservableList<User> getUsers()
 	{
 		return users;
 	}
 	
+	/**
+     * Method to add User
+     */
 	public void addUser(User user)
 	{
 		users.add(user);
 	}
 	
+	
+	/**
+     * Method to delete User
+     */
 	public void deleteUser(User user)
 	{
 		users.remove(user);
