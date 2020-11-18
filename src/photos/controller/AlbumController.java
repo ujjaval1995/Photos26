@@ -34,7 +34,6 @@ public class AlbumController extends MainController implements EventHandler<Mous
             album.deletePhoto(photo);
             refreshThumbnails();
         });
-		
 		menu.getItems().add(copy);
 		menu.getItems().add(move);
     	menu.getItems().add(delete);
@@ -44,7 +43,6 @@ public class AlbumController extends MainController implements EventHandler<Mous
 	{
 		refreshThumbnails();
 		refreshMenu();
-		refreshRightClickMenu();
 	}
 	
 	public void doAdd()
@@ -101,19 +99,41 @@ public class AlbumController extends MainController implements EventHandler<Mous
             	copy.getItems().clear();
             	for (Album a : model.getCurrentUser().getAlbums())
             	{
-                	MenuItem item = new MenuItem(a.getName());
-                	item.setOnAction(e ->
-                	{
-                        MenuItem item1 = (MenuItem) e.getSource();
-                        Photo photo1 = (Photo) menu.getUserData();
-                        Album target = model.getCurrentUser().getAlbum(item1.getText());
-                        target.addPhoto(new Photo(photo1));
-                    });
-                	copy.getItems().add(item);
+            		if (!a.equals(model.getCurrentUser().getCurrentAlbum()))
+            		{
+            			MenuItem item = new MenuItem(a.getName());
+	                	item.setOnAction(e ->
+	                	{
+	                        MenuItem item1 = (MenuItem) e.getSource();
+	                        Photo photo1 = (Photo) menu.getUserData();
+	                        Album target = model.getCurrentUser().getAlbum(item1.getText());
+	                        target.addPhoto(new Photo(photo1));
+	                    });
+	                	copy.getItems().add(item);
+            		}
             	}
-				
+            	
+            	move.getItems().clear();
+            	for (Album a : model.getCurrentUser().getAlbums())
+            	{
+            		if (!a.equals(model.getCurrentUser().getCurrentAlbum()))
+            		{
+            			MenuItem item = new MenuItem(a.getName());
+	                	item.setOnAction(e ->
+	                	{
+	                        MenuItem item1 = (MenuItem) e.getSource();
+	                        Photo photo1 = (Photo) menu.getUserData();
+	                        Album target = model.getCurrentUser().getAlbum(item1.getText());
+	                        target.addPhoto(new Photo(photo1));
+	                        model.getCurrentUser().getCurrentAlbum().deletePhoto(photo1);
+	                        refreshThumbnails();
+	                    });
+	                	move.getItems().add(item);
+            		}
+            	}
+            	
 				menu.setUserData(photo);
-	        	menu.show(tile, event.getScreenX(), event.getScreenY());
+	        	menu.show(view, event.getScreenX(), event.getScreenY());
 	        }
 	        event.consume();
 		}
@@ -127,10 +147,5 @@ public class AlbumController extends MainController implements EventHandler<Mous
 			BorderPane wrapper = photo.getThumbnail(this);
 			tile.getChildren().add(wrapper);
 		}
-	}
-	
-	public void refreshRightClickMenu()
-	{
-		
 	}
 }
