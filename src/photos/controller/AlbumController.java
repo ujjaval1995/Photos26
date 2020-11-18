@@ -1,6 +1,9 @@
 package photos.controller;
 
 import java.io.File;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
@@ -15,9 +18,14 @@ public class AlbumController extends MainController
 	@FXML Menu albummenu;
 	@FXML TilePane tile;
 	
+	public void initialize()
+	{
+		//tile = new TilePane();
+	}
+	
 	public void init()
 	{
-		refreshThumbnail();
+		refreshThumbnails();
 		refreshMenu();
 	}
 	
@@ -55,7 +63,7 @@ public class AlbumController extends MainController
     	}
 	}
 	
-	public void refreshThumbnail()
+	public void refreshThumbnails()
 	{		
 		tile.getChildren().clear();
 		for (Photo photo : model.getCurrentUser().getCurrentAlbum().getPhotos())

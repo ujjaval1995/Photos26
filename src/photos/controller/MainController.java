@@ -1,3 +1,8 @@
+/**
+ * This class helps with Main Controller.
+ * @author Jishnu Patel
+ * @author Ujjaval Shah
+ */
 package photos.controller;
 
 import javafx.application.Platform;
