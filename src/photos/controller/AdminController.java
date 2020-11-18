@@ -16,9 +16,24 @@ import photos.model.*;
 
 public class AdminController extends MainController
 {
+	/**
+     * ListView for List of Users
+     */
 	@FXML ListView<User> userlist;
+	
+	/**
+     * TextField for name of user to be added
+     */
 	@FXML TextField namefield;
+	
+	/**
+     * Button for adding username to be added
+     */
 	@FXML Button add;
+	
+	/**
+     * Button for deleting username to be deleted
+     */
 	@FXML Button delete;
 	
 	public void init()
@@ -31,7 +46,9 @@ public class AdminController extends MainController
             userlist.getSelectionModel().select(0);
     	}
 	}
-	
+	/**
+     * Adds an user(by admin)
+     */
 	public void doAdd()
 	{
 		ObservableList<User> users = model.getUsers();
@@ -78,6 +95,9 @@ public class AdminController extends MainController
 		namefield.clear();
 	}
 	
+	/**
+     * Deletes an user
+     */
 	public void doDelete()
 	{
 		ObservableList<User> users = model.getUsers();
