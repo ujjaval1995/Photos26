@@ -18,9 +18,19 @@ public class User implements Comparable<User>, Serializable
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
+	/**
+     * Username
+     */
 	private String name;
+	
+	/**
+     * List of Albums
+     */
 	private ObservableList<Album> albums;
+	
+	/**
+     * current album
+     */
 	private Album currentAlbum;
 
 	public User(String name)
@@ -29,22 +39,34 @@ public class User implements Comparable<User>, Serializable
 		albums = FXCollections.observableArrayList();
 		currentAlbum = null;
 	}
-	
+	/**
+     * method to Username
+     */
 	public String getName()
 	{
 		return name;
 	}
 	
+	/**
+     * method to get albums
+     */
 	public ObservableList<Album> getAlbums()
 	{
 		return albums;
 	}
 	
+	/**
+     * Method to get current Album
+     */
 	public Album getCurrentAlbum()
 	{
 		return currentAlbum;
 	}
 	
+	
+	/**
+     * Method to set current album
+     */
 	public void setCurrentAlbum(Album album)
 	{
         currentAlbum = album;
@@ -85,6 +107,10 @@ public class User implements Comparable<User>, Serializable
 		return null;
 	}
 	
+	
+	/**
+     * Method to add Album
+     */
 	public void addAlbum(String name)
 	{
 		Album album = new Album(name);
@@ -95,7 +121,9 @@ public class User implements Comparable<User>, Serializable
 	{
 		albums.add(album);
 	}
-	
+	/**
+     * Method to Delete Albums
+     */
 	public void deleteAlbum(Album album)
 	{
 		albums.remove(album);

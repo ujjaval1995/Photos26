@@ -2,6 +2,7 @@ package photos.model;
 
 public class Tag implements Comparable<Tag>
 {
+	
 	private String name;
 	private String value;
 	private boolean single;
@@ -13,11 +14,18 @@ public class Tag implements Comparable<Tag>
 		single = false;
 	}
 	
+	 /**
+     * Tag name
+     */
 	public String getName()
 	{
 		return name;
 	}
 	
+	
+	 /**
+     * Tag value
+     */
 	public String getValue()
 	{
 		return value;
@@ -34,6 +42,9 @@ public class Tag implements Comparable<Tag>
     	return name + ((single) ? " (singular)" : "") + " = " + value;
     }
 
+	 /**
+     * method to compare similar tags
+     */
 	@Override
 	public int compareTo(Tag tag)
 	{
