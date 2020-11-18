@@ -1,3 +1,8 @@
+/**
+ * This class helps with Login View.
+ * @author Jishnu Patel
+ * @author Ujjaval Shah
+ */
 package photos.controller;
 
 import javafx.fxml.FXML;

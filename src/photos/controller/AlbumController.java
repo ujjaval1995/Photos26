@@ -22,7 +22,7 @@ public class AlbumController extends MainController
 	
 	public void initialize()
 	{
-		tile = new TilePane();
+		//tile = new TilePane();
 	}
 	
 	public void init()
@@ -45,8 +45,8 @@ public class AlbumController extends MainController
 		        vbox.getChildren().addAll(view);
 		        BorderPane viewWrapper = new BorderPane(vbox);
 		        
-		        tile.getChildren().add(viewWrapper);
-		        
+		       tile.getChildren().add(viewWrapper);
+		       // tile.add(viewWrapper);
 		    }
 			catch (FileNotFoundException e)
 			{

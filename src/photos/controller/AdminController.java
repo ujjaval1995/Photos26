@@ -1,3 +1,8 @@
+/**
+ * This class helps with Admin View.
+ * @author Jishnu Patel
+ * @author Ujjaval Shah
+ */
 package photos.controller;
 
 import javafx.scene.control.TextField;

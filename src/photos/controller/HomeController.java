@@ -1,3 +1,8 @@
+/**
+ * This class helps with Home View.
+ * @author Jishnu Patel
+ * @author Ujjaval Shah
+ */
 package photos.controller;
 
 import java.time.LocalDate;
