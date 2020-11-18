@@ -91,6 +91,22 @@ public class AlbumController extends MainController implements EventHandler<Mous
 		{
 			ImageView view = (ImageView) obj;
 			
+			if (event.getButton().equals(MouseButton.PRIMARY))
+			{
+	            if (event.getClickCount() == 1)
+	            {
+	            	Object obj1 = view.getUserData();
+	            	Photo photo = (Photo) obj1;
+	            }
+	            else
+	            {
+	            	Object obj1 = view.getUserData();
+	            	Photo photo = (Photo) obj1;
+	            	
+	            	toPhoto();
+	            }
+	        }
+			
 			if (event.getButton() == MouseButton.SECONDARY)
 			{
 				Object obj1 = view.getUserData();

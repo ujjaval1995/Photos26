@@ -35,7 +35,7 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Pagination fx:id="photoCarousel" layoutX="14.0" layoutY="50.0" prefHeight="521.0" prefWidth="523.0" style="-fx-border-color: orange; -fx-background-color: darkgray;">
+      <Pagination fx:id="photoCarousel" layoutX="14.0" layoutY="37.0" prefHeight="548.0" prefWidth="523.0" style="-fx-border-color: orange; -fx-background-color: darkgray;">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
