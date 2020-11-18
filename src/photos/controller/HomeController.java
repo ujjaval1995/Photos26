@@ -95,7 +95,9 @@ public class HomeController extends MainController
 			}
 		});
 	}
-	
+	/**
+     * Initializes Home Scene
+     */
 	public void init()
 	{
 		model.getCurrentUser().setCurrentAlbum((Album) null);
@@ -113,7 +115,9 @@ public class HomeController extends MainController
 		refreshMenu();
 		table.refresh();
 	}
-	
+	/**
+     * Adds an Album
+     */
 	public void doAdd()
 	{
 		ObservableList<Album> albums = model.getCurrentUser().getAlbums();
@@ -154,7 +158,9 @@ public class HomeController extends MainController
 		namefield.clear();
 		refreshMenu();
 	}
-	
+	/**
+     * Deletes an Album
+     */
 	public void doDelete()
 	{
 		ObservableList<Album> albums = model.getCurrentUser().getAlbums();
@@ -163,7 +169,9 @@ public class HomeController extends MainController
 		table.setItems(albums);
 		refreshMenu();
 	}
-	
+	/**
+     * Refreshes Menu
+     */
 	public void refreshMenu()
 	{
 		albummenu.getItems().clear();

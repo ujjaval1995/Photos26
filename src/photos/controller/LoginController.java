@@ -13,10 +13,24 @@ import photos.model.*;
 
 public class LoginController extends MainController
 {
+	
+	/**
+     * TextField for username
+     */
 	@FXML TextField namefield;
+	
+	
 	@FXML Text message;
+	
+	/**
+     * Button to login
+     */
 	@FXML Button login;
 	
+	
+	/**
+     * Initializes Login Scene
+     */
 	public void init()
 	{
 		model.setCurrentUser(null);
@@ -24,6 +38,9 @@ public class LoginController extends MainController
 		message.setText("");
 	}
 	
+	/**
+     * Logs in
+     */
 	public void doLogin()
 	{
 		String name = namefield.getText().trim();
