@@ -7,6 +7,7 @@ package photos.controller;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -134,18 +135,22 @@ public class HomeController extends MainController
 		}
 		else
 		{
-//			long from = fromdate; // complete
-//			long to = fromdate; // complete
-//			for (Album a : albums)
-//			{
-//				for (Photo p : a.getPhotos())
-//				{
-//					if (p.getDate() >= from && p.getDate() <= to)
-//					{
-//						result.addPhoto(p);
-//					}
-//				}
-//			}
+          
+			
+			//DatePicker from = fromdate;// complete
+		//	String from=fromdate.getValue().toString();
+		//	
+		//	DatePicker to = todate; // complete
+		///	for (Album a : albums)
+			//{
+			//	for (Photo p : a.getPhotos())
+			//	{
+			//		if (p.getDate() >= from && p.getDate() <= to)
+			//		{
+			///		result.addPhoto(p);
+				//}
+				//}
+			//}
 		}
 		if (createAlbum)
 		{

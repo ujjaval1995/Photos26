@@ -19,6 +19,7 @@ public class AlbumController extends MainController implements EventHandler<Mous
 {
 	@FXML Menu albummenu;
 	@FXML TilePane tile;
+	 public static final String AlbumHelp = "/Photos/view/AlbumHelp.fxml";
 	
 	final ContextMenu menu = new ContextMenu();
 	Menu copy = new Menu("Copy");
@@ -155,5 +156,9 @@ public class AlbumController extends MainController implements EventHandler<Mous
 			BorderPane wrapper = photo.getThumbnail(this);
 			tile.getChildren().add(wrapper);
 		}
+	}
+	public void doAbout()
+	{
+		About(AlbumHelp);
 	}
 }

@@ -10,11 +10,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import photos.model.*;
 
@@ -206,8 +206,27 @@ public class MainController
 		Platform.exit();
 	}
 	
-	public void doAbout()
+	public void About(String fml)
 	{
+		Parent root;
+		try {
+			root = FXMLLoader.load(MainController.class.getResource(fml));
+		
+	    	Stage window = new Stage();
+	    
+	    	window.initModality(Modality.APPLICATION_MODAL);
+		
+			Scene scene = new Scene(root);
+			window.setScene(scene);
+			
+			window.setTitle("Help");
+			window.setResizable(false);
+			
+			window.show();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
 		// complete
-	}
 }

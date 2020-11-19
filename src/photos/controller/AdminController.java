@@ -36,6 +36,8 @@ public class AdminController extends MainController
      */
 	@FXML Button delete;
 	
+	 public static final String AdminHelp = "/Photos/view/AdminHelp.fxml";
+	
 	public void init()
 	{
 		namefield.clear();
@@ -104,5 +106,10 @@ public class AdminController extends MainController
 		User user = userlist.getSelectionModel().getSelectedItem();
 		users.remove(user);
 		userlist.setItems(users);
+	}
+	
+	public void doAbout()
+	{
+		About(AdminHelp);
 	}
 }

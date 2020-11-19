@@ -34,6 +34,8 @@ public class PhotoController extends MainController implements EventHandler<Mous
 	@FXML CheckBox singular;
 	@FXML Button add;
 	@FXML Button delete;
+	 public static final String PhotoHelp = "/Photos/view/PhotoHelp.fxml";
+
 	
 	public void initialize()
 	{
@@ -155,5 +157,9 @@ public class PhotoController extends MainController implements EventHandler<Mous
 	        	albummenu.getItems().add(item);
 			}
     	}
+	}
+	public void doAbout()
+	{
+		About(PhotoHelp);
 	}
 }
