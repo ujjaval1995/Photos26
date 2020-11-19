@@ -5,6 +5,10 @@
 */
 package photos.model;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import javafx.collections.FXCollections;
@@ -17,6 +21,14 @@ public class Model implements Serializable
      */
 	private static final long serialVersionUID = -3317259650904411150L;
 
+	public static final String storeDir ="dat";
+	public static final String storeFile = "Model.dat";
+	
+
+	public static void writeModel(Model model1) throws IOException {
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
+		oos.writeObject(model1); 
+		}
 
 	public static final String ADMIN = "admin";
 	

@@ -7,6 +7,12 @@ package photos.model;
 
 import java.util.*;
 import java.io.Serializable;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 
 //import javafx.collections.FXCollections;
 //import javafx.collections.ObservableList;
@@ -20,6 +26,10 @@ public class Album implements Comparable<Album>, Serializable
      * Serial Version UID
      */
 	private static final long serialVersionUID = 4299782837955524379L;
+	
+	public static final String storeDir ="dat";
+	public static final String storeFile = "Album.dat";
+	
 	private String name;
 	private int photoCount;
 	private LocalDate startDate;
@@ -27,6 +37,11 @@ public class Album implements Comparable<Album>, Serializable
 	private ArrayList<Photo> photos;
 	// ObservableList<Node> obslist;
 	private Photo currentPhoto;
+	
+	public static void writeAlbum(Album album1) throws IOException {
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
+		oos.writeObject(album1); 
+		}
 	
 	public Album(String name)
 	{
