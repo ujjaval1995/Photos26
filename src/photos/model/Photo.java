@@ -19,9 +19,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.time.Instant;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -34,20 +31,23 @@ public class Photo implements Serializable
      */
 	private static final long serialVersionUID = 1972277178174046585L;
 	
-	public static final String storeDir ="dat";
-	public static final String storeFile = "Photo.dat";
-	
-
-	public static void writePhoto(Photo photo1) throws IOException {
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
-		oos.writeObject(photo1); 
-		}
+//	public static final String storeDir ="dat";
+//	public static final String storeFile = "Photo.dat";
+//	
+//
+//	public static void writePhoto(Photo photo1) throws IOException {
+//		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
+//		oos.writeObject(photo1); 
+//		}
 	
 	private String path;
 	private String caption;
 	private long date;
 	private ObservableList<Tag> tags;
 
+	/**
+     * Method to derive photo attributes
+     */
 	public Photo(String path)
 	{
 		this.path = path;
@@ -56,6 +56,9 @@ public class Photo implements Serializable
 		tags = FXCollections.observableArrayList();
 	}
 	
+	/**
+     * Method to assign photo attribute values
+     */
 	public Photo(Photo photo)
 	{
 		this.path = photo.getPath();
@@ -64,31 +67,53 @@ public class Photo implements Serializable
 		tags = photo.getTags();
 	}
 	
+	/**
+     * Method to get photo path
+     */
 	public String getPath()
 	{
 		return path;
 	}
 	
+	
+	/**
+     * Method to get photo caption
+     */
 	public String getCaption()
 	{
 		return caption;
 	}
 
+	
+	/**
+     * Method to set photo caption
+     */
 	public void setCaption(String caption)
 	{
 		this.caption = caption;
 	}
 	
+	
+	/**
+     * Method to get photo date
+     */
 	public long getDate()
 	{
 		return date;
 	}
 	
+	
+	/**
+     * Method to get photo tags
+     */
 	public ObservableList<Tag> getTags()
 	{
 		return tags;
 	}
 	
+	/**
+     * Method to add photo tag
+     */
 	public boolean addTag(Tag tag)
 	{
 		for (Tag tag1 : tags)
@@ -115,6 +140,10 @@ public class Photo implements Serializable
 		tags.add(tag);
 		return true;
 	}
+	
+	/**
+     * Method to to display photo thumbnails in album
+     */
 	
 	public BorderPane getThumbnail(EventHandler<MouseEvent> handler)
 	{

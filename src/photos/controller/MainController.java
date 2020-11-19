@@ -5,6 +5,12 @@
  */
 package photos.controller;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +24,7 @@ public class MainController
 	
 	public static Stage stage;
 	
+	public final static String Data_File_Path 	= "photo26.dat";
 	public static Scene login_scene;
 	public static Scene admin_scene;
 	public static Scene home_scene;
@@ -30,6 +37,9 @@ public class MainController
 	public static AlbumController album_ctrl;
 	public static PhotoController photo_ctrl;
 	
+	/**
+     * Basic/Default Startup
+     */
 	public static void start(Stage primaryStage) throws Exception
 	{
 		FXMLLoader loader;
@@ -74,6 +84,9 @@ public class MainController
 		model = new Model();
 	}
 	
+	/**
+     * Method to get to Login Screen
+     */
 	public static void toLogin()
 	{
 		login_ctrl.init();
@@ -81,6 +94,10 @@ public class MainController
 		stage.setTitle("Welcome To Photos!");
 	}
 
+	
+	/**
+     * Method to get to Admin Screen
+     */
 	public static void toAdmin()
 	{
 		admin_ctrl.init();
@@ -88,6 +105,9 @@ public class MainController
 		stage.setTitle("Admin Subsystem");
 	}
 
+	/**
+     * Method to get to Home Screen
+     */
 	public static void toHome()
 	{
 		model.getCurrentUser().setCurrentAlbum((Album) null);
@@ -96,6 +116,9 @@ public class MainController
 		stage.setTitle("Welcome " + model.getCurrentUser());
 	}
 
+	/**
+     * Method to get to Photo Screen
+     */
 	public static void toPhoto(Photo photo)
 	{
 		model.getCurrentUser().getCurrentAlbum().setCurrentPhoto(photo);
@@ -113,6 +136,10 @@ public class MainController
 		stage.setTitle("Album - " + model.getCurrentUser().getCurrentAlbum());
 	}
 
+	
+	/**
+     * Method to get to Album Screen
+     */
 	public static void toAlbum(String name)
 	{
 		model.getCurrentUser().setCurrentAlbum(model.getCurrentUser().getAlbum(name));
@@ -121,6 +148,48 @@ public class MainController
 		stage.setScene(album_scene);
 		stage.setTitle("Album - " + model.getCurrentUser().getCurrentAlbum());
 	}
+	
+	/**
+     * Method to get Model
+     */
+	public static Model getModel() {
+        if (model == null) {
+            try {
+                FileInputStream fileIn = new FileInputStream(Data_File_Path);
+                ObjectInputStream in = new ObjectInputStream(fileIn);
+                model = (Model)in.readObject();
+                in.close();
+                fileIn.close();
+            }
+            catch(IOException | ClassNotFoundException i) {
+                model = null;
+                //i.printStackTrace();
+            }
+         
+        }    //
+        return model;
+    
+	}
+
+
+    /**
+     * Helps store the Model to file
+     */
+    public static void storeModelToFile() {
+		 if (model!=null) {
+	         try {
+	            FileOutputStream fileOut = new FileOutputStream(Data_File_Path);
+	            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+	            out.writeObject(model);
+	            out.close();
+	            fileOut.close();
+	         }
+	         catch (IOException i) {
+	             i.printStackTrace();
+	         }
+		 }
+	 }
+	
 	
 	public void doHome()
 	{
