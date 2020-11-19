@@ -85,15 +85,17 @@ public class User implements Comparable<User>, Serializable
 		return null;
 	}
 	
-	public void addAlbum(String name)
+	public Album addAlbum(String name)
 	{
 		Album album = new Album(name);
 		albums.add(album);
+		return album;
 	}
 	
-	public void addAlbum(Album album)
+	public Album addAlbum(Album album)
 	{
 		albums.add(album);
+		return album;
 	}
 	
 	public void deleteAlbum(Album album)

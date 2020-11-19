@@ -5,54 +5,50 @@
 */
 package photos.model;
 
-import java.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 public class Photo
 {
 	private String path;
-	private UUID id;
 	private String caption;
-	private LocalDateTime datetime;
+	private long date;
 	private ObservableList<Tag> tags;
 
 	public Photo(String path)
 	{
 		this.path = path;
-		id = UUID.randomUUID();
 		caption = path;
-		datetime = null;
+		date = (new File(path)).lastModified();
 		tags = FXCollections.observableArrayList();
 	}
 	
 	public Photo(Photo photo)
 	{
 		this.path = photo.getPath();
-		id = UUID.randomUUID();
 		caption = photo.getCaption();
-		datetime = photo.getDatetime();
+		date = (new File(path)).lastModified();
 		tags = photo.getTags();
 	}
 	
 	public String getPath()
 	{
 		return path;
-	}
-	
-	public UUID getId()
-	{
-		return id;
 	}
 	
 	public String getCaption()
@@ -65,9 +61,9 @@ public class Photo
 		this.caption = caption;
 	}
 	
-	public LocalDateTime getDatetime()
+	public long getDate()
 	{
-		return datetime;
+		return date;
 	}
 	
 	public ObservableList<Tag> getTags()
@@ -79,7 +75,21 @@ public class Photo
 	{
 		for (Tag tag1 : tags)
 		{
-			if ( (tag1.getName().equals(tag.getName()) && tag1.isSingle()) || (tag1.getName().equals(tag.getName()) && tag1.getValue().equals(tag.getValue())) )
+			if ( (tag1.getName().equals(tag.getName()) && (tag1.isSingle() || tag.isSingle())) || (tag1.getName().equals(tag.getName()) && tag1.getValue().equals(tag.getValue())) )
+			{
+				return false;
+			}
+		}
+		tags.add(tag);
+		return true;
+	}
+	
+	public boolean addTag(String name, String value, boolean single)
+	{
+		Tag tag = new Tag(name, value, single);
+		for (Tag tag1 : tags)
+		{
+			if ( (tag1.getName().equals(tag.getName()) && (tag1.isSingle() || tag.isSingle())) || (tag1.getName().equals(tag.getName()) && tag1.getValue().equals(tag.getValue())) )
 			{
 				return false;
 			}
@@ -134,9 +144,60 @@ public class Photo
         return wrapper;
 	}
 	
-//	public Node getPicture()
-//	{
-//		
-//	}
+	public Node getPicture(EventHandler<MouseEvent> handler)
+	{
+		Image image = null;
+        ImageView view;
+        try
+        {
+            image = new Image(new FileInputStream(getPath()));
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+		view = new ImageView(image);
+        view.setFitWidth(500);
+        view.setFitHeight(460);
+        view.setPreserveRatio(true);
+        view.setSmooth(true);
+        
+        view.setOnMouseClicked(handler);
+        view.setUserData(this);
+        
+        Photo photo = this;
+        TextField textfield = new TextField(getCaption());
+        textfield.setPrefWidth(150);
+        textfield.setOnAction(event ->
+        {
+            TextField textField = (TextField) event.getSource();
+            String temp = textField.getText().trim();
+            if (temp.length() == 0)
+            {
+                textField.setText(photo.getCaption());
+            }
+            else
+            {
+                photo.setCaption(temp);
+            }
+        });
+        
+        VBox vbox = new VBox(2);
+        vbox.getChildren().addAll(view, textfield);
+        
+        BorderPane wrapper = new BorderPane(vbox);
+        wrapper.setStyle("-fx-border-color: black");
+        
+        return wrapper;
+	}
+	
+	public static String epochToLocalTime(long time)
+	{
+        LocalDateTime datetime = LocalDateTime.ofInstant(Instant.ofEpochMilli(time), ZoneId.systemDefault());
+        //
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        //
+        return datetime.format(formatter);
+    }
 	
 }

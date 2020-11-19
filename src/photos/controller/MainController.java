@@ -102,6 +102,7 @@ public class MainController
 
 	public static void toHome()
 	{
+		model.getCurrentUser().setCurrentAlbum((Album) null);
 		home_ctrl.init();
 		stage.setScene(home_scene);
 		stage.setTitle("Welcome " + model.getCurrentUser());
@@ -109,6 +110,7 @@ public class MainController
 
 	public static void toPhoto(Photo photo)
 	{
+		model.getCurrentUser().getCurrentAlbum().setCurrentPhoto(photo);
 		photo_ctrl.init();
 		stage.setScene(photo_scene);
 		stage.setTitle("Album - " + model.getCurrentUser().getCurrentAlbum() + " (Photo View)");
@@ -116,6 +118,8 @@ public class MainController
 
 	public static void toAlbum(String name)
 	{
+		model.getCurrentUser().setCurrentAlbum(model.getCurrentUser().getAlbum(name));
+		model.getCurrentUser().getCurrentAlbum().setCurrentPhoto(null);
 		album_ctrl.init();
 		stage.setScene(album_scene);
 		stage.setTitle("Album - " + model.getCurrentUser().getCurrentAlbum());

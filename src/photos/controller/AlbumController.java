@@ -45,7 +45,7 @@ public class AlbumController extends MainController implements EventHandler<Mous
 		refreshMenu();
 	}
 	
-	public void doAdd()
+	public void doAddPhoto()
 	{
 		FileChooser fc = new FileChooser();
         fc.setTitle("Open Photo");
@@ -74,17 +74,13 @@ public class AlbumController extends MainController implements EventHandler<Mous
 			
 			if (event.getButton().equals(MouseButton.PRIMARY))
 			{
-	            if (event.getClickCount() == 2)
-	            {
-	            	Object obj1 = view.getUserData();
-	            	Photo photo = (Photo) obj1;
-	            	
-	            	model.getCurrentUser().getCurrentAlbum().setCurrentPhoto(photo);
-	            	toPhoto(photo);
-	            }
+            	Object obj1 = view.getUserData();
+            	Photo photo = (Photo) obj1;
+            	
+            	model.getCurrentUser().getCurrentAlbum().setCurrentPhoto(photo);
+            	toPhoto(photo);
 	        }
-			
-			if (event.getButton() == MouseButton.SECONDARY)
+			else if (event.getButton() == MouseButton.SECONDARY)
 			{
 				Object obj1 = view.getUserData();
 				Photo photo = (Photo) obj1;

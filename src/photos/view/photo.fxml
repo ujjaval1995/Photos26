@@ -41,20 +41,25 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Pagination>
-      <Label alignment="CENTER" layoutX="563.0" layoutY="29.0" prefHeight="17.0" prefWidth="311.0" text="Tags" textFill="#e18a20">
+      <Label alignment="CENTER" layoutX="563.0" layoutY="69.0" prefHeight="17.0" prefWidth="311.0" text="Tags" textFill="#e18a20">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <TextField fx:id="namefield" layoutX="553.0" layoutY="515.0" prefHeight="27.0" prefWidth="106.0" promptText="Tag Name" />
       <TextField fx:id="valuefield" layoutX="668.0" layoutY="515.0" prefHeight="27.0" prefWidth="128.0" promptText="Tag Value" />
-      <CheckBox fx:id="single" layoutX="806.0" layoutY="519.0" mnemonicParsing="false" text="Singular" textFill="ORANGE">
+      <CheckBox fx:id="singular" layoutX="806.0" layoutY="519.0" mnemonicParsing="false" text="Singular" textFill="ORANGE">
          <font>
             <Font size="13.0" />
          </font>
       </CheckBox>
-      <Button fx:id="add" layoutX="553.0" layoutY="560.0" mnemonicParsing="false" onAction="#doAddTag" prefHeight="25.0" prefWidth="157.0" text="Add Tag" />
-      <ListView fx:id="listview" layoutX="553.0" layoutY="68.0" prefHeight="432.0" prefWidth="330.0" style="-fx-border-color: orange; -fx-background-color: darkgray;" />
-      <Button fx:id="delete" layoutX="727.0" layoutY="560.0" mnemonicParsing="false" onAction="#doDeleteTag" prefHeight="25.0" prefWidth="157.0" text="Delete Selected Tag" />
+      <Button fx:id="addtag" layoutX="553.0" layoutY="560.0" mnemonicParsing="false" onAction="#doAddTag" prefHeight="25.0" prefWidth="157.0" text="Add Tag" />
+      <ListView fx:id="listview" layoutX="553.0" layoutY="110.0" prefHeight="390.0" prefWidth="330.0" style="-fx-border-color: orange; -fx-background-color: darkgray;" />
+      <Button fx:id="deletetag" layoutX="727.0" layoutY="560.0" mnemonicParsing="false" onAction="#doDeleteTag" prefHeight="25.0" prefWidth="157.0" text="Delete Selected Tag" />
+      <Label fx:id="datefield" alignment="CENTER" layoutX="547.0" layoutY="37.0" prefHeight="35.0" prefWidth="118.0" textFill="#e18a20">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

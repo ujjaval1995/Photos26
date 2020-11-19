@@ -6,11 +6,11 @@ public class Tag implements Comparable<Tag>
 	private String value;
 	private boolean single;
 	
-	public Tag(String name, String value)
+	public Tag(String name, String value, boolean single)
 	{
 		this.name = name;
 		this.value = value;
-		single = false;
+		this.single = single;
 	}
 	
 	public String getName()

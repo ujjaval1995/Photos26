@@ -100,7 +100,6 @@ public class HomeController extends MainController
      */
 	public void init()
 	{
-		model.getCurrentUser().setCurrentAlbum((Album) null);
 		namefield.clear();
 		value1field.clear();
 		value2field.clear();

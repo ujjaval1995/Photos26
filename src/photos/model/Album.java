@@ -7,30 +7,22 @@ package photos.model;
 
 import java.util.*;
 
-//import javafx.collections.FXCollections;
-//import javafx.collections.ObservableList;
-//import javafx.scene.Node;
-
-import java.time.LocalDate;
-
 public class Album implements Comparable<Album>
 {
 	private String name;
 	private int photoCount;
-	private LocalDate startDate;
-	private LocalDate endDate;
+	private String startDate;
+	private String endDate;
 	private ArrayList<Photo> photos;
-	// ObservableList<Node> obslist;
 	private Photo currentPhoto;
 	
 	public Album(String name)
 	{
 		this.name = name;
 		photoCount = 0;
-		startDate = null;
-		endDate = null;
+		startDate = "-";
+		endDate = "-";
 		photos = new ArrayList<>();
-		// obslist = FXCollections.observableArrayList();
 		currentPhoto = null;
 	}
 
@@ -49,12 +41,12 @@ public class Album implements Comparable<Album>
 		return photoCount;
 	}
 	
-	public LocalDate getStartDate()
+	public String getStartDate()
 	{
 		return startDate;
 	}
 	
-	public LocalDate getEndDate()
+	public String getEndDate()
 	{
 		return endDate;
 	}
@@ -64,23 +56,20 @@ public class Album implements Comparable<Album>
 		return photos;
 	}
 	
-	public void addPhoto(Photo photo)
+	public Photo addPhoto(Photo photo)
 	{
 		photos.add(photo);
-		// obslist.add(photo.getThumbnail());
 		photoCount++;
+		setDates();
+		return photo;
 	}
 	
 	public void deletePhoto(Photo photo)
 	{
 		photos.remove(photo);
+		setDates();
 		photoCount--;
 	}
-	
-//	public ObservableList<Node> getObslist()
-//	{
-//		return obslist;
-//	}
 	
 	public Photo getCurrentPhoto()
 	{
@@ -90,6 +79,44 @@ public class Album implements Comparable<Album>
 	public void setCurrentPhoto(Photo photo)
 	{
 		currentPhoto = photo;
+	}
+	
+	public void setDates()
+	{
+		if (photoCount == 0)
+		{
+		    startDate = "-";
+		    endDate = "-";
+		}
+		else
+		{
+			boolean start = true;
+			long min = 0;
+			long max = 0;
+			for (Photo photo: photos)
+			{
+				if (start)
+				{
+					min	= photo.getDate();
+					max	= photo.getDate();
+					start = false;
+				}
+				else
+				{
+					long date = photo.getDate();
+					if (date > max)
+					{
+						max = date;
+					}
+					if (date < min)
+					{
+						min = date;
+					}
+				}
+			}
+		    startDate = Photo.epochToLocalTime(min);
+		    endDate = Photo.epochToLocalTime(max);
+		}
 	}
 	
 	@Override
