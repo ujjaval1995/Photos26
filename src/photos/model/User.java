@@ -22,14 +22,14 @@ public class User implements Comparable<User>, Serializable
      */
 	private static final long serialVersionUID = 7071842589774998235L;
 
-	public static final String storeDir ="dat";
-	public static final String storeFile = "User.dat";
-	
-
-	public static void writeUser(User user1) throws IOException {
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
-		oos.writeObject(user1); 
-		}
+//	public static final String storeDir ="dat";
+//	public static final String storeFile = "User.dat";
+//	
+//
+//	public static void writeUser(User user1) throws IOException {
+//		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
+//		oos.writeObject(user1); 
+//		}
 	
 	private String name;
 	

@@ -19,8 +19,8 @@ public class Album implements Comparable<Album>, Serializable
      */
 	private static final long serialVersionUID = 4299782837955524379L;
 	
-	public static final String storeDir ="dat";
-	public static final String storeFile = "Album.dat";
+//	public static final String storeDir ="dat";
+//	public static final String storeFile = "Album.dat";
 	
 	private String name;
 	private int photoCount;
@@ -29,10 +29,10 @@ public class Album implements Comparable<Album>, Serializable
 	private ArrayList<Photo> photos;
 	private Photo currentPhoto;
 	
-	public static void writeAlbum(Album album1) throws IOException {
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
-		oos.writeObject(album1); 
-		}
+//	public static void writeAlbum(Album album1) throws IOException {
+//		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
+//		oos.writeObject(album1); 
+//		}
 	
 	public Album(String name)
 	{

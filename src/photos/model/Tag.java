@@ -14,14 +14,14 @@ public class Tag implements Comparable<Tag>,Serializable
      */
 	private static final long serialVersionUID = -3857758798627188080L;
 	
-	public static final String storeDir ="dat";
-	public static final String storeFile = "Tag.dat";
+//	public static final String storeDir ="dat";
+//	public static final String storeFile = "Tag.dat";
 	
 
-	public static void writeTag(Tag tag1) throws IOException {
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
-		oos.writeObject(tag1); 
-		}
+//	public static void writeTag(Tag tag1) throws IOException {
+//		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
+//		oos.writeObject(tag1); 
+//		}
 	private String name;
 	private String value;
 	private boolean single;

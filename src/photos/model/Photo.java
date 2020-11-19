@@ -34,14 +34,14 @@ public class Photo implements Serializable
      */
 	private static final long serialVersionUID = 1972277178174046585L;
 	
-	public static final String storeDir ="dat";
-	public static final String storeFile = "Photo.dat";
-	
-
-	public static void writePhoto(Photo photo1) throws IOException {
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
-		oos.writeObject(photo1); 
-		}
+//	public static final String storeDir ="dat";
+//	public static final String storeFile = "Photo.dat";
+//	
+//
+//	public static void writePhoto(Photo photo1) throws IOException {
+//		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
+//		oos.writeObject(photo1); 
+//		}
 	
 	private String path;
 	private String caption;
