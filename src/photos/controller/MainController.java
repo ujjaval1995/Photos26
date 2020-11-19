@@ -49,6 +49,9 @@ public class MainController
 	public static AlbumController album_ctrl;
 	public static PhotoController photo_ctrl;
 	
+	/**
+     * Basic/Default Startup
+     */
 	public static void start(Stage primaryStage) throws Exception
 	{
 		FXMLLoader loader;
@@ -93,6 +96,9 @@ public class MainController
 		model = new Model();
 	}
 	
+	/**
+     * Method to get to Login Screen
+     */
 	public static void toLogin()
 	{
 		login_ctrl.init();
@@ -100,6 +106,10 @@ public class MainController
 		stage.setTitle("Welcome To Photos!");
 	}
 
+	
+	/**
+     * Method to get to Admin Screen
+     */
 	public static void toAdmin()
 	{
 		admin_ctrl.init();
@@ -107,6 +117,9 @@ public class MainController
 		stage.setTitle("Admin Subsystem");
 	}
 
+	/**
+     * Method to get to Home Screen
+     */
 	public static void toHome()
 	{
 		model.getCurrentUser().setCurrentAlbum((Album) null);
@@ -115,6 +128,9 @@ public class MainController
 		stage.setTitle("Welcome " + model.getCurrentUser());
 	}
 
+	/**
+     * Method to get to Photo Screen
+     */
 	public static void toPhoto(Photo photo)
 	{
 		model.getCurrentUser().getCurrentAlbum().setCurrentPhoto(photo);
@@ -123,6 +139,10 @@ public class MainController
 		stage.setTitle("Album - " + model.getCurrentUser().getCurrentAlbum() + " (Photo View)");
 	}
 
+	
+	/**
+     * Method to get to Album Screen
+     */
 	public static void toAlbum(String name)
 	{
 		model.getCurrentUser().setCurrentAlbum(model.getCurrentUser().getAlbum(name));
@@ -132,6 +152,9 @@ public class MainController
 		stage.setTitle("Album - " + model.getCurrentUser().getCurrentAlbum());
 	}
 	
+	/**
+     * Method to get Model
+     */
 	public static Model getModel() {
         if (model == null) {
             try {

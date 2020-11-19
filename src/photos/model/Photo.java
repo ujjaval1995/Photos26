@@ -45,6 +45,9 @@ public class Photo implements Serializable
 	private long date;
 	private ObservableList<Tag> tags;
 
+	/**
+     * Method to derive photo attributes
+     */
 	public Photo(String path)
 	{
 		this.path = path;
@@ -53,6 +56,9 @@ public class Photo implements Serializable
 		tags = FXCollections.observableArrayList();
 	}
 	
+	/**
+     * Method to assign photo attribute values
+     */
 	public Photo(Photo photo)
 	{
 		this.path = photo.getPath();
@@ -61,31 +67,53 @@ public class Photo implements Serializable
 		tags = photo.getTags();
 	}
 	
+	/**
+     * Method to get photo path
+     */
 	public String getPath()
 	{
 		return path;
 	}
 	
+	
+	/**
+     * Method to get photo caption
+     */
 	public String getCaption()
 	{
 		return caption;
 	}
 
+	
+	/**
+     * Method to set photo caption
+     */
 	public void setCaption(String caption)
 	{
 		this.caption = caption;
 	}
 	
+	
+	/**
+     * Method to get photo date
+     */
 	public long getDate()
 	{
 		return date;
 	}
 	
+	
+	/**
+     * Method to get photo tags
+     */
 	public ObservableList<Tag> getTags()
 	{
 		return tags;
 	}
 	
+	/**
+     * Method to add photo tag
+     */
 	public boolean addTag(Tag tag)
 	{
 		for (Tag tag1 : tags)
@@ -112,6 +140,10 @@ public class Photo implements Serializable
 		tags.add(tag);
 		return true;
 	}
+	
+	/**
+     * Method to to display photo thumbnails in album
+     */
 	
 	public BorderPane getThumbnail(EventHandler<MouseEvent> handler)
 	{
