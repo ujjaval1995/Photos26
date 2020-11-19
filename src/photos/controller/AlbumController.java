@@ -3,9 +3,11 @@ package photos.controller;
 import java.io.File;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -58,6 +60,16 @@ public class AlbumController extends MainController implements EventHandler<Mous
         if (file != null)
         {
         	Photo photo = new Photo(file.getAbsolutePath());
+        	for (Photo p : model.getCurrentUser().getCurrentAlbum().getPhotos())
+			{
+					if (photo.getPath().equals(p.getPath()) )
+					{
+						Alert error = new Alert(AlertType.ERROR, "Path Already Exists");
+						error.showAndWait();
+						return;
+						
+					}
+				}
         	model.getCurrentUser().getCurrentAlbum().addPhoto(photo);
         	BorderPane wrapper = photo.getThumbnail(this);
         	tile.getChildren().add(wrapper);

@@ -5,9 +5,12 @@
  */
 package photos.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -29,6 +32,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseButton;
 import photos.model.*;
+
 
 public class HomeController extends MainController
 {
@@ -139,20 +143,17 @@ public class HomeController extends MainController
 		{
           
 			
-			//DatePicker from = fromdate;// complete
-		//	String from=fromdate.getValue().toString();
-		//	
-		//	DatePicker to = todate; // complete
-		///	for (Album a : albums)
-			//{
-			//	for (Photo p : a.getPhotos())
-			//	{
-			//		if (p.getDate() >= from && p.getDate() <= to)
-			//		{
-			///		result.addPhoto(p);
-				//}
-				//}
-			//}
+			
+		//	for (Album a : albums)
+		//	{
+		//		for (Photo p : a.getPhotos())
+		//		{
+		//			if (p.getDate() >= from && p.getDate() <= to)
+		//			{
+		//			result.addPhoto(p);
+		//		}
+		//		}
+		//	}
 		}
 		if (createAlbum)
 		{
