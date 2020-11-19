@@ -18,23 +18,11 @@ public class MainController
 	
 	public static Stage stage;
 	
-//	public static Stage login_stage;
-//	public static Stage admin_stage;
-//	public static Stage home_stage;
-//	public static Stage album_stage;
-//	public static Stage photo_stage;
-	
 	public static Scene login_scene;
 	public static Scene admin_scene;
 	public static Scene home_scene;
 	public static Scene album_scene;
 	public static Scene photo_scene;
-	
-//	public static Ctrl login_ctrl;
-//	public static Ctrl admin_ctrl;
-//	public static Ctrl home_ctrl;
-//	public static Ctrl album_ctrl;
-//	public static Ctrl photo_ctrl;
 	
 	public static LoginController login_ctrl;
 	public static AdminController admin_ctrl;
@@ -114,6 +102,15 @@ public class MainController
 		photo_ctrl.init();
 		stage.setScene(photo_scene);
 		stage.setTitle("Album - " + model.getCurrentUser().getCurrentAlbum() + " (Photo View)");
+	}
+	
+	public static void toAlbum(Album album)
+	{
+		model.getCurrentUser().setCurrentAlbum(album);
+		model.getCurrentUser().getCurrentAlbum().setCurrentPhoto(null);
+		album_ctrl.init();
+		stage.setScene(album_scene);
+		stage.setTitle("Album - " + model.getCurrentUser().getCurrentAlbum());
 	}
 
 	public static void toAlbum(String name)

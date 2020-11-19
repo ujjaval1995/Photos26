@@ -6,6 +6,8 @@
 package photos.controller;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
+
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -101,6 +103,8 @@ public class HomeController extends MainController
 	public void init()
 	{
 		namefield.clear();
+		name1field.clear();
+		name2field.clear();
 		value1field.clear();
 		value2field.clear();
 		single.setSelected(true);
@@ -114,6 +118,154 @@ public class HomeController extends MainController
 		refreshMenu();
 		table.refresh();
 	}
+	
+	public void doSearchByDate()
+	{
+		ObservableList<Album> albums = model.getCurrentUser().getAlbums();
+		String name = namefield.getText().trim();
+		Album result = new Album(name);
+		boolean createAlbum = false;
+		
+		if (fromdate.getValue() == null || todate.getValue() == null)
+		{
+			Alert error = new Alert(AlertType.ERROR, "Invalid input");
+			error.showAndWait();
+			return;
+		}
+		else
+		{
+//			long from = fromdate; // complete
+//			long to = fromdate; // complete
+//			for (Album a : albums)
+//			{
+//				for (Photo p : a.getPhotos())
+//				{
+//					if (p.getDate() >= from && p.getDate() <= to)
+//					{
+//						result.addPhoto(p);
+//					}
+//				}
+//			}
+		}
+		if (createAlbum)
+		{
+			albums.add(result);
+		}
+		toAlbum(result);
+	}
+	
+	public void doSearchByTag()
+	{
+		ObservableList<Album> albums = model.getCurrentUser().getAlbums();
+		String name = namefield.getText().trim();
+		Album result = new Album(name);
+		boolean createAlbum = false;
+		
+		if (name.length() != 0)
+		{
+			createAlbum = true;
+			if (albums.contains(result))
+			{
+				Alert error = new Alert(AlertType.ERROR, "Album already exists");
+				error.showAndWait();
+				return;
+			}
+		}
+		else
+		{
+			result = new Album("Search Result");
+		}
+		
+		String name1 = name1field.getText().trim();
+		String name2 = name2field.getText().trim();
+		String value1 = value1field.getText().trim();
+		String value2 = value2field.getText().trim();
+		
+		if (group.getSelectedToggle().equals(single))
+		{
+			if (name1.length() == 0 || value1.length() == 0)
+			{
+				Alert error = new Alert(AlertType.ERROR, "Invalid Input");
+				error.showAndWait();
+				return;
+			}
+			for (Album a : albums)
+			{
+				for (Photo p : a.getPhotos())
+				{
+					for (Tag t : p.getTags())
+					{
+						if (t.getName().equals(name1) && t.getValue().equals(value1))
+						{
+							result.addPhoto(p);
+							break;
+						}
+					}
+				}
+			}
+		}
+		else if (group.getSelectedToggle().equals(and))
+		{
+			if (name1.length() == 0 || value1.length() == 0 || name2.length() == 0 || value2.length() == 0)
+			{
+				Alert error = new Alert(AlertType.ERROR, "Invalid Input");
+				error.showAndWait();
+				return;
+			}
+			for (Album a : albums)
+			{
+				for (Photo p : a.getPhotos())
+				{
+					boolean match1 = false;
+					boolean match2 = false;
+					for (Tag t : p.getTags())
+					{
+						if (t.getName().equals(name1) && t.getValue().equals(value1))
+						{
+							match1 = true;
+						}
+						if (t.getName().equals(name2) && t.getValue().equals(value2))
+						{
+							match2 = true;
+						}
+					}
+					if (match1 && match2)
+					{
+						result.addPhoto(p);
+					}
+				}
+			}
+		}
+		else if (group.getSelectedToggle().equals(or))
+		{
+			if (name1.length() == 0 || value1.length() == 0 || name2.length() == 0 || value2.length() == 0)
+			{
+				Alert error = new Alert(AlertType.ERROR, "Invalid Input");
+				error.showAndWait();
+				return;
+			}
+			for (Album a : albums)
+			{
+				for (Photo p : a.getPhotos())
+				{
+					for (Tag t : p.getTags())
+					{
+						if ( (t.getName().equals(name1) && t.getValue().equals(value1)) || (t.getName().equals(name2) && t.getValue().equals(value2)) )
+						{
+							result.addPhoto(p);
+							break;
+						}
+					}
+				}
+			}
+		}
+		if (createAlbum)
+		{
+			albums.add(result);
+		}
+		toAlbum(result);
+	}
+	
 	/**
      * Adds an Album
      */
