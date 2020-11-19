@@ -107,9 +107,19 @@ public class AlbumController extends MainController implements EventHandler<Mous
 	                	item.setOnAction(e ->
 	                	{
 	                        MenuItem item1 = (MenuItem) e.getSource();
-	                        Photo photo1 = (Photo) menu.getUserData();
+	                       // Photo photo1 = (Photo) menu.getUserData();
 	                        Album target = model.getCurrentUser().getAlbum(item1.getText());
-	                        target.addPhoto(new Photo(photo1));
+	                        for (Photo p : target.getPhotos())
+	            			{
+	            					if (photo.getPath().equals(p.getPath()) )
+	            					{
+	            						Alert error = new Alert(AlertType.ERROR, "Path Already Exists");
+	            						error.showAndWait();
+	            						return;
+	            						
+	            					}
+	            				}
+	                        target.addPhoto((Photo) menu.getUserData());
 	                    });
 	                	copy.getItems().add(item);
             		}
@@ -124,10 +134,21 @@ public class AlbumController extends MainController implements EventHandler<Mous
 	                	item.setOnAction(e ->
 	                	{
 	                        MenuItem item1 = (MenuItem) e.getSource();
-	                        Photo photo1 = (Photo) menu.getUserData();
+	                     //   Photo photo1 = (Photo) menu.getUserData();
 	                        Album target = model.getCurrentUser().getAlbum(item1.getText());
-	                        target.addPhoto(new Photo(photo1));
-	                        model.getCurrentUser().getCurrentAlbum().deletePhoto(photo1);
+	                        
+	                        for (Photo p : target.getPhotos())
+	            			{
+	            					if (photo.getPath().equals(p.getPath()) )
+	            					{
+	            						Alert error = new Alert(AlertType.ERROR, "Path Already Exists");
+	            						error.showAndWait();
+	            						return;
+	            						
+	            					}
+	            				}
+	                        target.addPhoto((Photo) menu.getUserData());
+	                        model.getCurrentUser().getCurrentAlbum().deletePhoto((Photo) menu.getUserData());
 	                        refreshThumbnails();
 	                    });
 	                	move.getItems().add(item);
