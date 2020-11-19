@@ -31,8 +31,8 @@ public class Photos extends Application
 	/**
 	 * Store data to file upon program stop
 	 */
-	@Override
-	public void stop(){
-        MainController.storeModelToFile();
-	}
+	//@Override
+	//public void stop(){
+     //   MainController.storeModelToFile();
+	//}
 }
