@@ -6,6 +6,6 @@
 
 <VBox prefHeight="400.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="This is designed by Jishnu Patel &amp; Ujjaval Shah&#10;&#10;LOGIN HELP&#10;&#10;To login, enter your username in the textfield and click LOGIN.&#10;&#10;" />
+      <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" text="This is designed by Jishnu Patel &amp; Ujjaval Shah&#10;&#10;PHOTO HELP&#10;&#10;To edit caption&#10;- Edit the textfield under the photo&#10;&#10;To Add tags&#10;-Enter Tag Name and Tag Value and click Add&#10;&#10;To Delete tags&#10;-Select the tag to be deleted from the list and click Delete Selected Tag&#10;&#10;" />
    </children>
 </VBox>
