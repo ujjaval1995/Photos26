@@ -4,7 +4,7 @@
 * @author Ujjaval Shah
 */
 package photos.app;
-import photos.*;
+import photos.model.*;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
