@@ -59,6 +59,8 @@ public class HomeController extends MainController
 	
 	@FXML Menu albummenu;
 	
+	public static final String HomeHelp = "/photos/view/HomeHelp.fxml";
+	
 	public void initialize()
 	{
 		name_col.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -343,4 +345,9 @@ public class HomeController extends MainController
         	albummenu.getItems().add(item);
     	}
 	}
+	public void doAbout()
+	{
+		About(HomeHelp);
+	}
+	
 }

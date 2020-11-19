@@ -27,7 +27,7 @@ public class LoginController extends MainController
      */
 	@FXML Button login;
 	
-	 public static final String LoginHelp = "/Photos/view/LoginHelp.fxml";
+	 public static final String LoginHelp = "/photos/view/LoginHelp.fxml";
 
 	/**
      * Initializes Login Scene

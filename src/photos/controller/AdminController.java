@@ -36,7 +36,7 @@ public class AdminController extends MainController
      */
 	@FXML Button delete;
 	
-	 public static final String AdminHelp = "/Photos/view/AdminHelp.fxml";
+	 public static final String AdminHelp = "/photos/view/AdminHelp.fxml";
 	
 	public void init()
 	{

@@ -19,7 +19,7 @@ public class AlbumController extends MainController implements EventHandler<Mous
 {
 	@FXML Menu albummenu;
 	@FXML TilePane tile;
-	 public static final String AlbumHelp = "/Photos/view/AlbumHelp.fxml";
+	 public static final String AlbumHelp = "/photos/view/AlbumHelp.fxml";
 	
 	final ContextMenu menu = new ContextMenu();
 	Menu copy = new Menu("Copy");
