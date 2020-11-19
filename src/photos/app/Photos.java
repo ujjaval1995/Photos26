@@ -4,6 +4,7 @@
 * @author Ujjaval Shah
 */
 package photos.app;
+import photos.model.*;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -25,6 +26,17 @@ public class Photos extends Application
 	 */
 	public static void main(String[] args)
 	{
+	//	Album album1 = new Album();
+	//	Model model1 = new Model();
+	//	Photo photo1 = new Photo();
+	//	Tag tag1=new Tag();
+	//	User user1=new User();
 		launch(args);
+	//	writeAlbum(album1);
+	//	writeModel(model1);
+	//	writePhoto(photo1);
+	//	writeTag(tag1);
+	//	writeUser(user1);
+		
 	}
 }

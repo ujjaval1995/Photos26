@@ -5,11 +5,31 @@
 */
 package photos.model;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Model
+public class Model implements Serializable
 {
+	/**
+     * Serial Version UID
+     */
+	private static final long serialVersionUID = -3317259650904411150L;
+
+	public static final String storeDir ="dat";
+	public static final String storeFile = "Model.dat";
+	
+
+	public static void writeModel(Model model1) throws IOException {
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
+		oos.writeObject(model1); 
+		}
+
 	public static final String ADMIN = "admin";
 	
 	private ObservableList<User> users;
@@ -43,27 +63,20 @@ public class Model
 		
 		Photo jishnu = students.addPhoto(new Photo("data/Jishnu.jpg"));
 		Photo ujjaval = students.addPhoto(new Photo("data/Ujjaval.jpg"));
-		
-//		Photo bulbasaur = stock.getAlbum(pokemon).addPhoto(new Photo("data/001.png"));
-//		Photo squirtle = stock.getAlbum(pokemon).addPhoto(new Photo("data/004.png"));
-//		Photo charmander = stock.getAlbum(pokemon).addPhoto(new Photo("data/007.png"));
-//		Photo pikachu = stock.getAlbum(pokemon).addPhoto(new Photo("data/025.png"));
-//		
-//		Photo franny = stock.getAlbum(cs_department).addPhoto(new Photo("data/Franny.jpg"));
-//		Photo guna = stock.getAlbum(cs_department).addPhoto(new Photo("data/Guna.jpg"));
-//		Photo santosh = stock.getAlbum(cs_department).addPhoto(new Photo("data/Santosh.jpg"));
-//		Photo sesh = stock.getAlbum(cs_department).addPhoto(new Photo("data/Sesh.jpg"));
-//		
-//		Photo jishnu = stock.getAlbum(students).addPhoto(new Photo("data/Jishnu.jpg"));
-//		Photo ujjaval = stock.getAlbum(students).addPhoto(new Photo("data/Ujjaval.jpg"));
 	}
 	
-	
+	/**
+     * Method to get Current User
+     */
 	public User getCurrentUser()
 	{
         return currentUser;
     }
 
+	
+	/**
+     * Method to set Current User
+     */
 	public void setCurrentUser(String name)
 	{
 		for (User user : users)
@@ -75,17 +88,28 @@ public class Model
 		}
 	}
 	
+	
+	/**
+     * List of Users
+     */
 	public ObservableList<User> getUsers()
 	{
 		return users;
 	}
 	
+	/**
+     * Method to add User
+     */
 	public User addUser(User user)
 	{
 		users.add(user);
 		return user;
 	}
 	
+	
+	/**
+     * Method to delete User
+     */
 	public void deleteUser(User user)
 	{
 		users.remove(user);

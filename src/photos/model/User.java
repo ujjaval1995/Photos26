@@ -5,6 +5,10 @@
 */
 package photos.model;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import javafx.collections.FXCollections;
@@ -14,13 +18,29 @@ public class User implements Comparable<User>, Serializable
 {
 	
 	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+     * Serial Version UID
+     */
+	private static final long serialVersionUID = 7071842589774998235L;
+
+	public static final String storeDir ="dat";
+	public static final String storeFile = "User.dat";
 	
+
+	public static void writeUser(User user1) throws IOException {
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(storeDir + File.separator + storeFile));
+		oos.writeObject(user1); 
+		}
 	
 	private String name;
+	
+	/**
+     * List of Albums
+     */
 	private ObservableList<Album> albums;
+	
+	/**
+     * current album
+     */
 	private Album currentAlbum;
 
 	public User(String name)
@@ -29,22 +49,34 @@ public class User implements Comparable<User>, Serializable
 		albums = FXCollections.observableArrayList();
 		currentAlbum = null;
 	}
-	
+	/**
+     * method to Username
+     */
 	public String getName()
 	{
 		return name;
 	}
 	
+	/**
+     * method to get albums
+     */
 	public ObservableList<Album> getAlbums()
 	{
 		return albums;
 	}
 	
+	/**
+     * Method to get current Album
+     */
 	public Album getCurrentAlbum()
 	{
 		return currentAlbum;
 	}
 	
+	
+	/**
+     * Method to set current album
+     */
 	public void setCurrentAlbum(Album album)
 	{
         currentAlbum = album;
@@ -85,6 +117,9 @@ public class User implements Comparable<User>, Serializable
 		return null;
 	}
 	
+	/**
+     * Method to add Album
+     */
 	public Album addAlbum(String name)
 	{
 		Album album = new Album(name);
@@ -97,7 +132,9 @@ public class User implements Comparable<User>, Serializable
 		albums.add(album);
 		return album;
 	}
-	
+	/**
+     * Method to Delete Albums
+     */
 	public void deleteAlbum(Album album)
 	{
 		albums.remove(album);
