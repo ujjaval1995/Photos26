@@ -5,12 +5,11 @@
  */
 package photos.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
-import java.time.ZoneId;
+
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -141,19 +140,44 @@ public class HomeController extends MainController
 		}
 		else
 		{
+	//		String from1 = fromdate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+	//		String to1 = todate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+      //    String[] from2=from1.split("/");
+        //  String[] to2=to1.split("/");
+          //int[] from3= {0,0,0};
+			//for(int i=0;i<=2;i++)
+			//	from3[i]=Integer.parseInt(from2[i]);
+			//int[] to3= {0,0,0};
+			//for(int i=0;i<=2;i++)
+			//	to3[i]=Integer.parseInt(to2[i]);
           
 			
 			
-		//	for (Album a : albums)
-		//	{
-		//		for (Photo p : a.getPhotos())
-		//		{
-		//			if (p.getDate() >= from && p.getDate() <= to)
-		//			{
-		//			result.addPhoto(p);
-		//		}
-		//		}
-		//	}
+			//for (Album a : albums)
+			//{
+			//	for (Photo p : a.getPhotos())
+			//	{
+			//		String getFrom=Photo.epochToLocalTime(p.getDate());
+			//		String getFrom1=getFrom.substring(0,11);
+			//		String[] getFrom2=getFrom1.split("-");
+			//		int[] getFrom3= {0,0,0};
+			//		for(int i=0;i<=2;i++) {
+			//			getFrom3[i]=Integer.parseInt(getFrom2[i]);
+			//		}
+			//		
+			//		if (getFrom3[0] >= from3[0] && getFrom3[0] <= to3[0])
+			//		{
+			//			if (getFrom3[1] >= from3[1] && getFrom3[1] <= to3[1])
+			//			{
+			//				if (getFrom3[2] >= from3[2] && getFrom3[2] <= to3[2])
+			//				{
+			//					result.addPhoto(p);
+			//				}
+			//			}
+			//		
+			//	}
+			//	}
+			//}
 		}
 		if (createAlbum)
 		{
